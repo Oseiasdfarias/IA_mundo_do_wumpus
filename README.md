@@ -1,17 +1,13 @@
 
-<center>
-    <img src="utils/logo.png" alt="Girl in a jacket" style="width:60px">
-</center>
 
-<center>
+<img src="utils/logo.png" alt="Girl in a jacket" style="width:60px">
+
+
 
 ### Universidade Federal do Pará
-
 ### Campus Universitário de Tucuruí
-
 ### Faculdade de Engenharia Elétrica
 
-</center>
 
 <br>
 
