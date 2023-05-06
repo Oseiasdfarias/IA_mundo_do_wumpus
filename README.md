@@ -1,6 +1,6 @@
 
 <center>
-    <img src="utils/logo.png" alt="Girl in a jacket" style="width:60px">
+    <img src="utils/logo.png" alt="Girl in a jacket" style="width:80px">
 </center>
 
 <center>
