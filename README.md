@@ -4,17 +4,16 @@
 </center>
 
 <center>
-
 <strong>Universidade Federal do Pará
 </strong>
+</center>
 
-
+<center>
 <strong>Campus Universitário de Tucuruí</strong>
+</center>
 
-
+<center>
 <strong>Faculdade de Engenharia Elétrica</strong>
-
-
 </center>
 
 <br>
