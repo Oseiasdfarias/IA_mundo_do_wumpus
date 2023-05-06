@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "ia-mundo-do-wumpus"
+version = "0.1.0"
+description = "Projeto O Mundo do Wumpus - Anbiente para estudo da disciplina de Inteligencia Computacional."
+authors = ["Oseiasdfarias <oseias.dfarias@gmail.com>"]
+readme = "README.md"
+packages = [{include = "ia_mundo_do_wumpus"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+numpy = "^1.24.3"
+
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
