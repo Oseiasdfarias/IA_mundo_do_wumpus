@@ -5,12 +5,12 @@
 
 <center>
 
-### <strong>Universidade Federal do Pará
+<strong>Universidade Federal do Pará
 </strong>
 
-### <strong>Campus Universitário de Tucuruí</strong>
+<strong>Campus Universitário de Tucuruí</strong>
 
-### <strong>Faculdade de Engenharia Elétrica</strong>
+<strong>Faculdade de Engenharia Elétrica</strong>
 
 </center>
 
