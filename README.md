@@ -18,3 +18,7 @@
 # Mundo do Wumpus - Intelegência Computacional
 
 Ambiente para estudo de modelos de Apredizagem de Máquina da disciplina de Inteligência Computacional.
+
+<center>
+    <img src="utils/code_demo.png" alt="Demostração do Anbiente de desenvolvimento." style="width:900px">
+</center>
