@@ -1,1 +1,5 @@
-theme: minima
+theme:
+    name: mkdocs
+    highlightjs: true
+    hljs_languages:
+        - python
