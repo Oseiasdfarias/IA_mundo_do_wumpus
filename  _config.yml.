@@ -1,5 +1,14 @@
-theme:
-    name: mkdocs
-    highlightjs: true
-    hljs_languages:
-        - python
+# Site settings
+title: Mundo do Wumpus - Intelegência Computacional
+author:
+  name: Ângelo Aragão, Johanes Martins, Oséias Farias
+  email: oseias.dfarias@gmail.com
+description: "Ambiente para estudo de modelos de Apredizagem de Máquina da disciplina de Inteligência Computacional."
+
+# Build settings
+remote_theme: jekyll/mkdocs
+
+highlighter: rouge
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
