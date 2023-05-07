@@ -29,7 +29,7 @@ class Ambiente:
         self.mundo[0, 0] = "A"
 
     def infos_ambiente(self) -> None:
-        print(f"Tamanho do Anbiente: {self.mundo.shape}")
+        print(f"\nTamanho do Ambiente: {self.mundo.shape}")
 
     def mostrar_ambiente(self) -> None:
         print(f"\nMundo do Wumpus:\n{self.mundo}\n")
