@@ -3,18 +3,11 @@
     <img src="utils/logo.png" alt="Girl in a jacket" style="width:80px">
 </center>
 
-<center>
-<strong>Universidade Federal do Pará
-</strong>
-</center>
+<center><strong>Universidade Federal do Pará</strong></center>
 
-<center>
-<strong>Campus Universitário de Tucuruí</strong>
-</center>
+<center><strong>Campus Universitário de Tucuruí</strong></center>
 
-<center>
-<strong>Faculdade de Engenharia Elétrica</strong>
-</center>
+<center><strong>Faculdade de Engenharia Elétrica</strong></center>
 
 <br>
 
