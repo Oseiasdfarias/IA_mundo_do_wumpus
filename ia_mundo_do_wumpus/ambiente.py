@@ -15,6 +15,11 @@ class Ambiente:
         self.mundo = np.zeros(self.dimensoes, dtype=int)
         self.mundo[:] = 0
 
+        # Percepções
+        self.percepcoes: dict = {"pocos":  [],
+                                 "wumpus": [],
+                                 "ouro":   []}
+
         # Posicionando o Agente no ambiente.
         self.add_pos_agente()
         # Posicionando o(s) Wumpu(s) no ambiente.
@@ -36,6 +41,19 @@ class Ambiente:
         else:
             self.add_pos_obj(obj)
         return pos_sort
+
+    def add_percepcoes(self, objeto: str, pos: npt.NDArray) -> None:
+        if pos[0] == 0:
+            self.percepcoes[objeto].append((pos[0] + 1, pos[1]))
+        elif pos[0] > 0:
+            self.percepcoes[objeto].append((pos[0] + 1, pos[1]))
+            self.percepcoes[objeto].append((pos[0] - 1, pos[1]))
+
+        if pos[1] == 0:
+            self.percepcoes[objeto].append((pos[0], pos[1] + 1))
+        elif pos[1] > 0:
+            self.percepcoes[objeto].append((pos[0], pos[1] + 1))
+            self.percepcoes[objeto].append((pos[0], pos[1] - 1))
 
     def add_pos_wumpus(self) -> None:
         """Posicionando os Wumpo(s) no Ambiente."""
