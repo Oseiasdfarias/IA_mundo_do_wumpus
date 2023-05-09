@@ -1,5 +1,6 @@
 import numpy as np
 from random import randint
+import numpy.typing as npt
 
 
 class Ambiente:
@@ -25,7 +26,7 @@ class Ambiente:
         # Menu
         self.menu()
 
-    def add_pos_obj(self, obj: int):
+    def add_pos_obj(self, obj: int) -> None:
         """Posiciona os Objetos no Ambiente."""
         pos_sort = self.sortear_pos()
         if self.mundo[pos_sort[0], pos_sort[1]] == 0:
@@ -35,27 +36,28 @@ class Ambiente:
         else:
             self.add_pos_obj(obj)
 
-    def add_pos_wumpus(self):
+    def add_pos_wumpus(self) -> None:
         """Posicionando os Wumpo(s) no Ambiente."""
         for i in range(self.wumpus):
             self.add_pos_obj(1)
 
-    def add_pos_pocos(self):
+    def add_pos_pocos(self) -> None:
         """Posicionando os Poços no Ambiente."""
         for i in range(self.pocos):
             self.add_pos_obj(2)
 
-    def add_pos_ouro(self):
+    def add_pos_ouro(self) -> None:
         """Posicionando o(s) Ouro(s) no Ambiente."""
         for i in range(self.ouro):
             self.add_pos_obj(3)
 
-    def sortear_pos(self):
+    def sortear_pos(self) -> npt.NDArray:
         x = randint(0, self.dimensoes[0]-1)
         y = randint(0, self.dimensoes[0]-1)
         return np.array([x, y])
 
-    def menu(self):
+    @classmethod
+    def menu(self) -> None:
         print("\n====== Menu - Mundo do Wumpus ======")
         print("\t+ 1 - Wumpus")
         print("\t+ 2 - Poços")
@@ -63,7 +65,7 @@ class Ambiente:
         print("\t+ 4 - Agente")
         print("====================================")
 
-    def add_pos_agente(self):
+    def add_pos_agente(self) -> None:
         """Posicionando o(s) Agente(s) no Ambiente."""
         self.mundo[0, 0] = 4
 
