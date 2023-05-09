@@ -56,12 +56,12 @@ class Ambiente:
         return np.array([x, y])
 
     def menu(self):
-        print("\n============= Menu =============")
+        print("\n====== Menu - Mundo do Wumpus ======")
         print("\t+ 1 - Wumpus")
         print("\t+ 2 - Poços")
         print("\t+ 3 - Ouro")
         print("\t+ 4 - Agente")
-        print("===============================")
+        print("====================================")
 
     def add_pos_agente(self):
         """Posicionando o(s) Agente(s) no Ambiente."""
