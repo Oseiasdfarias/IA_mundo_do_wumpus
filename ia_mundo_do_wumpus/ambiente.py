@@ -44,34 +44,41 @@ class Ambiente:
 
     def add_percepcoes(self, objeto: str, pos: npt.NDArray) -> None:
         if pos[0] == 0:
-            self.percepcoes[objeto].append((pos[0] + 1, pos[1]))
-        elif pos[0] > 0:
-            self.percepcoes[objeto].append((pos[0] + 1, pos[1]))
-            self.percepcoes[objeto].append((pos[0] - 1, pos[1]))
+            self.percepcoes[objeto].append((pos[1], pos[0] + 1))
+        elif pos[0] == (self.dimensoes[0]-1):
+            self.percepcoes[objeto].append((pos[1], pos[0] - 1))
+        elif (pos[0] > 0) and (pos[0] < self.dimensoes[0]):
+            self.percepcoes[objeto].append((pos[1], pos[0] + 1))
+            self.percepcoes[objeto].append((pos[1], pos[0] - 1))
 
         if pos[1] == 0:
-            self.percepcoes[objeto].append((pos[0], pos[1] + 1))
-        elif pos[1] > 0:
-            self.percepcoes[objeto].append((pos[0], pos[1] + 1))
-            self.percepcoes[objeto].append((pos[0], pos[1] - 1))
+            self.percepcoes[objeto].append((pos[1] + 1, pos[0]))
+        elif pos[1] == (self.dimensoes[0]-1):
+            self.percepcoes[objeto].append((pos[1] - 1, pos[0]))
+        elif (pos[1] > 0) and (pos[1] < self.dimensoes[0]):
+            self.percepcoes[objeto].append((pos[1] + 1, pos[0]))
+            self.percepcoes[objeto].append((pos[1] - 1, pos[0]))
 
     def add_pos_wumpus(self) -> None:
         """Posicionando os Wumpo(s) no Ambiente."""
         for i in range(self.wumpus):
             pos_wumpus = self.add_pos_obj(1)
+            self.add_percepcoes(objeto="wumpus", pos=pos_wumpus)
             print(pos_wumpus)
 
     def add_pos_pocos(self) -> None:
         """Posicionando os Poços no Ambiente."""
         for i in range(self.pocos):
             pos_poco = self.add_pos_obj(2)
+            self.add_percepcoes(objeto="pocos", pos=pos_poco)
             print(pos_poco)
 
     def add_pos_ouro(self) -> None:
         """Posicionando o(s) Ouro(s) no Ambiente."""
         for i in range(self.ouro):
             pos_ouro = self.add_pos_obj(3)
-            print(pos_ouro)
+            self.add_percepcoes(objeto="ouro", pos=pos_ouro)
+            print(f"Ouro pos: {pos_ouro}")
 
     def sortear_pos(self) -> npt.NDArray:
         x = randint(0, self.dimensoes[0]-1)
@@ -97,8 +104,12 @@ class Ambiente:
     def mostrar_ambiente(self) -> None:
         print(f"\nMundo do Wumpus:\n{self.mundo}\n")
 
+    def mostrar_percepcoes(self):
+        print(f"Posições das Percepções\n{self.percepcoes}")
+
 
 if __name__ == "__main__":
     amb = Ambiente(dimensao_ambiente=3)
     # amb.infos_ambiente()
     amb.mostrar_ambiente()
+    amb.mostrar_percepcoes()
