@@ -43,6 +43,7 @@ class Ambiente:
         return pos_sort
 
     def add_percepcoes(self, objeto: str, pos: npt.NDArray) -> None:
+        """Posiciona as percepções no Ambiente."""
         if pos[0] == 0:
             self.percepcoes[objeto].append((pos[1], pos[0] + 1))
         elif pos[0] == (self.dimensoes[0]-1):
@@ -81,12 +82,14 @@ class Ambiente:
             print(f"Ouro pos: {pos_ouro}")
 
     def sortear_pos(self) -> npt.NDArray:
+        """Sortea as posições dos Objetos no Ambiente."""
         x = randint(0, self.dimensoes[0]-1)
         y = randint(0, self.dimensoes[0]-1)
         return np.array([x, y])
 
     @classmethod
     def menu(self) -> None:
+        """Menu com a descrições dos Objetos."""
         print("\n====== Menu - Mundo do Wumpus ======")
         print("\t+ 1 - Wumpus")
         print("\t+ 2 - Poços")
@@ -99,12 +102,15 @@ class Ambiente:
         self.mundo[0, 0] = 4
 
     def infos_ambiente(self) -> None:
+        """Exibe a dimensão do mundo do Wumpus."""
         print(f"\nTamanho do Ambiente: {self.mundo.shape}")
 
     def mostrar_ambiente(self) -> None:
+        """Exibe o Mundo do Wumpus com os objetos em suas posições."""
         print(f"\nMundo do Wumpus:\n{self.mundo}\n")
 
     def mostrar_percepcoes(self):
+        """Exibe o dicionário com as posições das percepções."""
         print(f"Posições das Percepções\n{self.percepcoes}")
 
 
