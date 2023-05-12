@@ -113,9 +113,9 @@ class Ambiente:
     def mostrar_percepcoes(self):
         """Exibe o dicionário com as posições das percepções."""
         print("\n======== Posições das Percepções - Mundo do Wumpus ========")
-        print(f"\tPos - Percepções do Wumpus:\n\t{self.percepcoes['wumpus']}\n")
-        print(f"\tPos - Percepções do Poços:\n\t{self.percepcoes['pocos']}\n")
-        print(f"\tPos - Percepções do Ouro:\n\t{self.percepcoes['ouro']}")
+        print(f"\tPos - Percepção do Wumpus:\n\t{self.percepcoes['wumpus']}\n")
+        print(f"\tPos - Percepção do Poços:\n\t{self.percepcoes['pocos']}\n")
+        print(f"\tPos - Percepção do Ouro:\n\t{self.percepcoes['ouro']}")
         print("============================================================\n")
 
 
@@ -123,4 +123,4 @@ if __name__ == "__main__":
     amb = Ambiente(dimensao_ambiente=3)
     # amb.infos_ambiente()
     amb.mostrar_ambiente()
-    # amb.mostrar_percepcoes()
+    amb.mostrar_percepcoes()
