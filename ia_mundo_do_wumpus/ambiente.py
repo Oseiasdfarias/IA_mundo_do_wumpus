@@ -33,30 +33,31 @@ class Ambiente:
 
     def add_pos_obj(self, obj: int) -> npt.NDArray:
         """Posiciona os Objetos no Ambiente."""
-        pos_sort = self.sortear_pos()
-        if self.mundo[pos_sort[0], pos_sort[1]] == 0:
-            self.mundo[pos_sort[0], pos_sort[1]] = obj
-        elif pos_sort[0] == 0 and pos_sort[1] == 0:
+        self.pos_sort = self.sortear_pos()
+        if self.mundo[self.pos_sort[0], self.pos_sort[1]] == 0:
+            self.mundo[self.pos_sort[0], self.pos_sort[1]] = obj
+            return self.pos_sort
+        elif ((self.pos_sort[0] == 0) and (self.pos_sort[1] == 0)):
             self.add_pos_obj(obj)
         else:
             self.add_pos_obj(obj)
-        return pos_sort
+        return self.pos_sort
 
     def add_percepcoes(self, objeto: str, pos: npt.NDArray) -> None:
         """Posiciona as percepções no Ambiente."""
         if pos[0] == 0:
             self.percepcoes[objeto].append((pos[1], pos[0] + 1))
-        elif pos[0] == (self.dimensoes[0]-1):
+        elif pos[0] == (self.dimensoes[0] - 1):
             self.percepcoes[objeto].append((pos[1], pos[0] - 1))
-        elif (pos[0] > 0) and (pos[0] < self.dimensoes[0]):
+        elif (pos[0] > 0) and (pos[0] < (self.dimensoes[0] - 1)):
             self.percepcoes[objeto].append((pos[1], pos[0] + 1))
             self.percepcoes[objeto].append((pos[1], pos[0] - 1))
 
         if pos[1] == 0:
             self.percepcoes[objeto].append((pos[1] + 1, pos[0]))
-        elif pos[1] == (self.dimensoes[0]-1):
+        elif pos[1] == (self.dimensoes[0] - 1):
             self.percepcoes[objeto].append((pos[1] - 1, pos[0]))
-        elif (pos[1] > 0) and (pos[1] < self.dimensoes[0]):
+        elif (pos[1] > 0) and (pos[1] < (self.dimensoes[0] - 1)):
             self.percepcoes[objeto].append((pos[1] + 1, pos[0]))
             self.percepcoes[objeto].append((pos[1] - 1, pos[0]))
 
@@ -65,14 +66,14 @@ class Ambiente:
         for i in range(self.wumpus):
             pos_wumpus = self.add_pos_obj(1)
             self.add_percepcoes(objeto="wumpus", pos=pos_wumpus)
-            print(pos_wumpus)
+            print(f"Wumpus pos: {pos_wumpus}")
 
     def add_pos_pocos(self) -> None:
         """Posicionando os Poços no Ambiente."""
         for i in range(self.pocos):
             pos_poco = self.add_pos_obj(2)
             self.add_percepcoes(objeto="pocos", pos=pos_poco)
-            print(pos_poco)
+            print(f"Poço pos: {pos_poco}")
 
     def add_pos_ouro(self) -> None:
         """Posicionando o(s) Ouro(s) no Ambiente."""
