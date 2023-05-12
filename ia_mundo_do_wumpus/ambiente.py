@@ -66,21 +66,21 @@ class Ambiente:
         for i in range(self.wumpus):
             pos_wumpus = self.add_pos_obj(1)
             self.add_percepcoes(objeto="wumpus", pos=pos_wumpus)
-            print(f"Wumpus pos: {pos_wumpus}")
+            # print(f"Wumpus pos: {pos_wumpus}")
 
     def add_pos_pocos(self) -> None:
         """Posicionando os Poços no Ambiente."""
         for i in range(self.pocos):
             pos_poco = self.add_pos_obj(2)
             self.add_percepcoes(objeto="pocos", pos=pos_poco)
-            print(f"Poço pos: {pos_poco}")
+            # print(f"Poço pos: {pos_poco}")
 
     def add_pos_ouro(self) -> None:
         """Posicionando o(s) Ouro(s) no Ambiente."""
         for i in range(self.ouro):
             pos_ouro = self.add_pos_obj(3)
             self.add_percepcoes(objeto="ouro", pos=pos_ouro)
-            print(f"Ouro pos: {pos_ouro}")
+            # print(f"Ouro pos: {pos_ouro}")
 
     def sortear_pos(self) -> npt.NDArray:
         """Sortea as posições dos Objetos no Ambiente."""
@@ -108,15 +108,19 @@ class Ambiente:
 
     def mostrar_ambiente(self) -> None:
         """Exibe o Mundo do Wumpus com os objetos em suas posições."""
-        print(f"\nMundo do Wumpus:\n{self.mundo}\n")
+        print(f"\nMundo do Wumpus:\n{self.mundo}")
 
     def mostrar_percepcoes(self):
         """Exibe o dicionário com as posições das percepções."""
-        print(f"Posições das Percepções\n{self.percepcoes}")
+        print("\n======== Posições das Percepções - Mundo do Wumpus ========")
+        print(f"\tPos - Percepções do Wumpus:\n\t{self.percepcoes['wumpus']}\n")
+        print(f"\tPos - Percepções do Poços:\n\t{self.percepcoes['pocos']}\n")
+        print(f"\tPos - Percepções do Ouro:\n\t{self.percepcoes['ouro']}")
+        print("============================================================\n")
 
 
 if __name__ == "__main__":
     amb = Ambiente(dimensao_ambiente=3)
     # amb.infos_ambiente()
     amb.mostrar_ambiente()
-    amb.mostrar_percepcoes()
+    # amb.mostrar_percepcoes()
