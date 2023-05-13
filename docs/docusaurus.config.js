@@ -108,7 +108,7 @@ const config = {
             ],
           },
           {
-            title: 'Community',
+            title: 'Comunicação',
             items: [
               {
                 label: 'Stack Overflow',
