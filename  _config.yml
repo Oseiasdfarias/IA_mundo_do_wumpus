@@ -1,9 +1,0 @@
-# Site settings
-title: Mundo do Wumpus - Intelegência Computacional
-author:
-  name: Ângelo Aragão, Johanes Martins, Oséias Farias
-  email: oseias.dfarias@gmail.com
-description: "Ambiente para estudo de modelos de Apredizagem de Máquina da disciplina de Inteligência Computacional."
-
-# Build settings
-theme: jekyll-dash
