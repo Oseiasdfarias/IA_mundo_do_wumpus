@@ -4,7 +4,10 @@ import numpy.typing as npt
 
 
 class Ambiente:
-    """Classe que implementa o Anbiente do Mundo do Wumpus."""
+    """
+        Classe que implementa o Ambiente e as percepções
+        do Mundo do Wumpus.
+    """
     def __init__(self, dimensao_ambiente: int = 3,
                  wumpus: int = 1, ouro: int = 1) -> None:
         self.pocos = dimensao_ambiente
