@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[734],{8519:s=>{s.exports=JSON.parse('{"label":"wumpus","permalink":"/IA_mundo_do_wumpus/blog/tags/wumpus","allTagsPath":"/IA_mundo_do_wumpus/blog/tags","count":1}')}}]);
