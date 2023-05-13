@@ -14,12 +14,12 @@ const config = {
   url: 'https://oseiasdfarias.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/IA_mundo_do_wumpus/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'oseiasdfarias', // Usually your GitHub org/user name.
-  projectName: 'docs', // Usually your repo name.
+  organizationName: 'Oseiasdfarias', // Usually your GitHub org/user name.
+  projectName: 'IA_mundo_do_wumpus', // Usually your repo name.
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
