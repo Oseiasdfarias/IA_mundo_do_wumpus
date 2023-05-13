@@ -79,7 +79,7 @@ class Ambiente:
         """Posicionando o(s) Ouro(s) no Ambiente."""
         for i in range(self.ouro):
             pos_ouro = self.add_pos_obj(3)
-            self.add_percepcoes(objeto="ouro", pos=pos_ouro)
+            self.percepcoes["ouro"].append((pos_ouro[1], pos_ouro[0]))
             # print(f"Ouro pos: {pos_ouro}")
 
     def sortear_pos(self) -> npt.NDArray:
