@@ -1,6 +1,5 @@
 
-
-<img src="https://github.com/Oseiasdfarias/IA_mundo_do_wumpus/blob/main/utils/logo.png?raw=true" alt="Logo UFPA" style="width:80px">
+<img src="https://github.com/Oseiasdfarias/IA_mundo_do_wumpus/blob/main/utils/logo.png?raw=true" alt="Logo UFPA" style="width:50px">
 
 
 <strong>Universidade Federal do Pará</strong>\
