@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Mundo do Wumpus - IA',
   tagline: 'Ambiente para estudos de Inteligência Computacional',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon_1.ico',
 
   // Set the production url of your site here
   url: 'https://oseiasdfarias.github.io',
@@ -68,7 +68,7 @@ const config = {
         title: 'Mundo do Wumpus - IA',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/logo_1.svg',
         },
         items: [
           {
