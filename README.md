@@ -1,13 +1,11 @@
 
-<center>
-    <img src="utils/logo.png" alt="Girl in a jacket" style="width:80px">
-</center>
 
-<center><strong>Universidade Federal do Pará</strong></center>
+<img src="https://github.com/Oseiasdfarias/IA_mundo_do_wumpus/blob/main/utils/logo.png?raw=true" alt="Logo UFPA" style="width:80px">
 
-<center><strong>Campus Universitário de Tucuruí</strong></center>
 
-<center><strong>Faculdade de Engenharia Elétrica</strong></center>
+<strong>Universidade Federal do Pará</strong>\
+<strong>Campus Universitário de Tucuruí</strong>\
+<strong>Faculdade de Engenharia Elétrica</strong>
 
 <br>
 
@@ -19,10 +17,9 @@ Ambiente para estudo de modelos de Apredizagem de Máquina da disciplina de Inte
 
 # Versões do Projeto
 
-<center>
-    <img src="utils/code_demo.png" alt="Demostração do Anbiente de desenvolvimento." style="width:900px">
-</center>
+<img src="https://github.com/Oseiasdfarias/IA_mundo_do_wumpus/blob/main/utils/code_demo.png?raw=true" alt="Ambiente Mundo do Wumpus." style="width:900px">
 
+<br>
 
 ## [Link Versão 00](https://github.com/Oseiasdfarias/IA_mundo_do_wumpus/tree/versao_0)
 
