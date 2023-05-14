@@ -19,6 +19,11 @@ Ambiente para estudo de modelos de Apredizagem de Máquina da disciplina de Inte
 
 # Versões do Projeto
 
+<center>
+    <img src="utils/code_demo.png" alt="Demostração do Anbiente de desenvolvimento." style="width:900px">
+</center>
+
+
 ## [Link Versão 00](https://github.com/Oseiasdfarias/IA_mundo_do_wumpus/tree/versao_0)
 
 **Etapa 1 - Gerador Aleatório de Ambientes do Mundo do Wumpus.**
@@ -68,6 +73,3 @@ Ambiente para estudo de modelos de Apredizagem de Máquina da disciplina de Inte
 
 <br>
 
-<center>
-    <img src="utils/code_demo.png" alt="Demostração do Anbiente de desenvolvimento." style="width:900px">
-</center>
