@@ -2,46 +2,34 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Tutorial Introdução
 
-Let's discover **Docusaurus in less than 5 minutes**.
+O <a target="_blank" href="https://pypi.org/project/ia-wumpus/">ia-wumpus</a> é uma biblioteca Python desenvolvida para estudo de Inteligência Computacional aplicada ao mundo do <a target="_blank" href="https://www.ime.usp.br/~leliane/IAcurso2000/Wumpus.html">Mundo do Wumpus</a>.
 
-## Getting Started
+## Primeiros passos
 
-Get started by **creating a new site**.
+Para começar a usar o ambiente, você deve ter o <a target="_blank" href="https://www.python.org">Python</a> instalado em sua máquina, além do gerenciador de pacotes <a target="_blank" href="https://packaging.python.org/pt_BR/latest/guides/installing-using-pip-and-virtual-environments/">pip</a>.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
-
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
+Com os requisitos acima cumpridos, para instalar a biblioteca `ia-wumpus` basta digitar o seguitne comando em seu terminal.
 
 ```bash
-npm init docusaurus@latest my-website classic
+pip install ia-wumpus
+# ou
+pip3 install ia-wumpus
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+Além dessa opção, voçe também pode instalar a biblioteca atravês do <a target="_blank" href="https://www.anaconda.com">conda</a> e do <a target="_blank" href="https://python-poetry.org">poetry</a>, para isso, tendo é preciso instalar o gerencciador e redar o um dos seguintes comando em seu terminal.
 
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
+Instalar com `poetry`:
 
 ```bash
-cd my-website
-npm run start
+poetry add ia-wumpus
 ```
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+Instalar com `conda`:
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+```bash
+conda install ia-wumpus
+```
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Pronto, agora você tem a biblioteca pronta para uso.
