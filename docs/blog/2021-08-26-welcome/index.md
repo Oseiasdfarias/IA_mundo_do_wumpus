@@ -1,8 +1,8 @@
 ---
-slug: welcome
-title: Welcome
+slug: Bem-vindos
+title: Bem-vindos
 authors: [ofarias]
-tags: [wumpus, hello, teste]
+tags: [wumpus]
 ---
 
 [Docusaurus blogging features](https://docusaurus.io/docs/blog) are powered by the [blog plugin](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog).
