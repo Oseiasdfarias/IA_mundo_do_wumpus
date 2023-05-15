@@ -24,19 +24,19 @@ class Ambiente:
                                  "ouro":   []}
 
         # Posicionando o Agente no ambiente.
-        self.add_pos_agente()
+        self.__add_pos_agente()
         # Posicionando o(s) Wumpu(s) no ambiente.
-        self.add_pos_wumpus()
+        self.__add_pos_wumpus()
         # Posicionando o(s) Poço(s) no ambiente.
-        self.add_pos_pocos()
+        self.__add_pos_pocos()
         # Posicionando o(s) Ouro(s) no ambiente.
-        self.add_pos_ouro()
+        self.__add_pos_ouro()
         # Menu
-        self.menu()
+        self.__menu()
 
     def add_pos_obj(self, obj: int) -> npt.NDArray:
         """Posiciona os Objetos no Ambiente."""
-        self.pos_sort = self.sortear_pos()
+        self.pos_sort = self.__sortear_pos()
         if self.mundo[self.pos_sort[0], self.pos_sort[1]] == 0:
             self.mundo[self.pos_sort[0], self.pos_sort[1]] = obj
             return self.pos_sort
@@ -46,7 +46,13 @@ class Ambiente:
             self.add_pos_obj(obj)
         return self.pos_sort
 
-    def add_percepcoes(self, objeto: str, pos: npt.NDArray) -> None:
+    def __sortear_pos(self) -> npt.NDArray:
+        """Sortea as posições dos Objetos no Ambiente."""
+        x = randint(0, self.dimensoes[0]-1)
+        y = randint(0, self.dimensoes[0]-1)
+        return np.array([x, y])
+
+    def __add_percepcoes_obj(self, objeto: str, pos: npt.NDArray) -> None:
         """Posiciona as percepções no Ambiente."""
         if pos[0] == 0:
             self.percepcoes[objeto].append((pos[1], pos[0] + 1))
@@ -64,35 +70,33 @@ class Ambiente:
             self.percepcoes[objeto].append((pos[1] + 1, pos[0]))
             self.percepcoes[objeto].append((pos[1] - 1, pos[0]))
 
-    def add_pos_wumpus(self) -> None:
+    def __add_pos_wumpus(self) -> None:
         """Posicionando os Wumpo(s) no Ambiente."""
         for i in range(self.wumpus):
             pos_wumpus = self.add_pos_obj(1)
-            self.add_percepcoes(objeto="wumpus", pos=pos_wumpus)
+            self.__add_percepcoes_obj(objeto="wumpus", pos=pos_wumpus)
             # print(f"Wumpus pos: {pos_wumpus}")
 
-    def add_pos_pocos(self) -> None:
+    def __add_pos_pocos(self) -> None:
         """Posicionando os Poços no Ambiente."""
         for i in range(self.pocos):
             pos_poco = self.add_pos_obj(2)
-            self.add_percepcoes(objeto="pocos", pos=pos_poco)
+            self.__add_percepcoes_obj(objeto="pocos", pos=pos_poco)
             # print(f"Poço pos: {pos_poco}")
 
-    def add_pos_ouro(self) -> None:
+    def __add_pos_ouro(self) -> None:
         """Posicionando o(s) Ouro(s) no Ambiente."""
         for i in range(self.ouro):
             pos_ouro = self.add_pos_obj(3)
             self.percepcoes["ouro"].append((pos_ouro[1], pos_ouro[0]))
             # print(f"Ouro pos: {pos_ouro}")
 
-    def sortear_pos(self) -> npt.NDArray:
-        """Sortea as posições dos Objetos no Ambiente."""
-        x = randint(0, self.dimensoes[0]-1)
-        y = randint(0, self.dimensoes[0]-1)
-        return np.array([x, y])
+    def __add_pos_agente(self) -> None:
+        """Posicionando o(s) Agente(s) no Ambiente."""
+        self.mundo[0, 0] = 4
 
     @classmethod
-    def menu(self) -> None:
+    def __menu(self) -> None:
         """Menu com a descrições dos Objetos."""
         print("\n====== Menu - Mundo do Wumpus ======")
         print("\t+ 1 - Wumpus")
@@ -100,10 +104,6 @@ class Ambiente:
         print("\t+ 3 - Ouro")
         print("\t+ 4 - Agente")
         print("====================================")
-
-    def add_pos_agente(self) -> None:
-        """Posicionando o(s) Agente(s) no Ambiente."""
-        self.mundo[0, 0] = 4
 
     def infos_ambiente(self) -> None:
         """Exibe a dimensão do mundo do Wumpus."""

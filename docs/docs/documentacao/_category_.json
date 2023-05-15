@@ -1,6 +1,6 @@
 {
   "label": "Documentação",
-  "position": 3,
+  "position": 2,
   "link": {
     "type": "generated-index",
     "description": "Documentação das Classes que implementão o Mundo do Wumpus em Python."
