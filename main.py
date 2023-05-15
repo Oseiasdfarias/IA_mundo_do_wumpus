@@ -1,4 +1,4 @@
-from ia_mundo_do_wumpus import Ambiente
+from ia_wumpus import Ambiente
 
 
 def run_mundo(dimensao_mundo=3):
