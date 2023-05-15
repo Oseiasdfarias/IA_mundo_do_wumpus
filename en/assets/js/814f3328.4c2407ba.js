@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Bem-vindos","permalink":"/IA_mundo_do_wumpus/en/blog/Bem-vindos"},{"title":"Teste do Blog","permalink":"/IA_mundo_do_wumpus/en/blog/long-blog-post"}]}')}}]);

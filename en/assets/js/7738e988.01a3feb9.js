@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[547],{9232:s=>{s.exports=JSON.parse('{"permalink":"/IA_mundo_do_wumpus/en/blog/tags/wumpus","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
