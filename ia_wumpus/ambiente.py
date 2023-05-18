@@ -1,6 +1,7 @@
 import numpy as np
 from random import randint
 import numpy.typing as npt
+from typing import Tuple
 
 
 class Ambiente:
@@ -15,8 +16,8 @@ class Ambiente:
         self.ouro = ouro
         self.dimensoes = (dimensao_ambiente, dimensao_ambiente)
 
-        self.mundo = np.zeros(self.dimensoes, dtype=int)
-        self.mundo[:] = 0
+        self.__mundo = np.zeros(self.dimensoes, dtype=int)
+        self.__mundo[:] = 0
 
         # Percepções
         self.percepcoes: dict = {"pocos":  [],
@@ -34,11 +35,20 @@ class Ambiente:
         # Menu
         self.__menu()
 
+    def get_mundo(self) -> npt.NDArray:
+        return self.__mundo
+
+    def set_agente(self, pos_agente: Tuple[int]) -> None:
+        self.__mundo[pos_agente] = 4
+
+    def get_percepcoes(self):
+        return self.percepcoes
+
     def add_pos_obj(self, obj: int) -> npt.NDArray:
         """Posiciona os Objetos no Ambiente."""
         self.pos_sort = self.__sortear_pos()
-        if self.mundo[self.pos_sort[0], self.pos_sort[1]] == 0:
-            self.mundo[self.pos_sort[0], self.pos_sort[1]] = obj
+        if self.__mundo[self.pos_sort[0], self.pos_sort[1]] == 0:
+            self.__mundo[self.pos_sort[0], self.pos_sort[1]] = obj
             return self.pos_sort
         elif ((self.pos_sort[0] == 0) and (self.pos_sort[1] == 0)):
             self.add_pos_obj(obj)
@@ -93,7 +103,7 @@ class Ambiente:
 
     def __add_pos_agente(self) -> None:
         """Posicionando o(s) Agente(s) no Ambiente."""
-        self.mundo[0, 0] = 4
+        self.__mundo[0, 0] = 4
 
     @classmethod
     def __menu(self) -> None:
@@ -107,11 +117,11 @@ class Ambiente:
 
     def infos_ambiente(self) -> None:
         """Exibe a dimensão do mundo do Wumpus."""
-        print(f"\nTamanho do Ambiente: {self.mundo.shape}")
+        print(f"\nTamanho do Ambiente: {self.__mundo.shape}")
 
     def mostrar_ambiente(self) -> None:
         """Exibe o Mundo do Wumpus com os objetos em suas posições."""
-        print(f"\nMundo do Wumpus:\n{self.mundo}")
+        print(f"\nMundo do Wumpus:\n{self.__mundo}")
 
     def mostrar_percepcoes(self):
         """Exibe o dicionário com as posições das percepções."""
@@ -127,3 +137,4 @@ if __name__ == "__main__":
     # amb.infos_ambiente()
     amb.mostrar_ambiente()
     amb.mostrar_percepcoes()
+    amb.set_agente((1, 1))
