@@ -19,10 +19,11 @@ class Ambiente:
         self.__mundo = np.zeros(self.dimensoes, dtype=int)
         self.__mundo[:] = 0
 
-        # Percepções
+        # Percepções dos Objetos no Ambiente.
         self.percepcoes: dict = {"pocos":  [],
                                  "wumpus": [],
                                  "ouro":   []}
+        # Posições dos Objetos no Ambiente.
         self.pos_objetos: dict = {"pocos":  [],
                                   "wumpus": [],
                                   "ouro":   [],
@@ -39,10 +40,8 @@ class Ambiente:
         # Menu
         self.__menu()
 
-    def get_mundo(self) -> npt.NDArray:
-        return self.__mundo
-
     def atualiza_pos_agente(self, pos_agente: Tuple[int, int]) -> None:
+        """Atualiza a posição do Agente no Ambiente."""
         self.__mundo[self.pos_objetos["agente"][-1]] = 0
         print("antes ", self.pos_objetos["agente"][-1])
         self.pos_objetos["agente"] = [pos_agente]
@@ -50,9 +49,11 @@ class Ambiente:
         self.__mundo[self.pos_objetos["agente"][-1]] = 4
 
     def get_pos_objetos(self) -> Dict:
+        """Obtem as posições dos Objetos no Ambiente."""
         return self.pos_objetos
 
     def get_percepcoes(self) -> Dict:
+        """Obtem as percepções dos Objetos no Ambiente."""
         return self.percepcoes
 
     def add_pos_obj_map(self, obj: int) -> npt.NDArray:
@@ -68,6 +69,7 @@ class Ambiente:
         return self.pos_sort
 
     def salvar_pos_objetos(self, objeto: str, pos_objeto) -> None:
+        """Armazena as posições dos Objetos em um dicionário Python."""
         self.pos_objetos[objeto].append(pos_objeto)
 
     def __sortear_pos(self) -> npt.NDArray:
@@ -156,4 +158,8 @@ if __name__ == "__main__":
     amb.mostrar_ambiente()
     # amb.mostrar_percepcoes()
     amb.atualiza_pos_agente((1, 1))
+    amb.mostrar_ambiente()
+    amb.atualiza_pos_agente((2, 2))
+    amb.mostrar_ambiente()
+    amb.atualiza_pos_agente((3, 3))
     amb.mostrar_ambiente()
