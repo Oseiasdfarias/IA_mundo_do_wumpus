@@ -15,6 +15,19 @@
 # Data: Maio - 2023
 #  ----------------------------------------------------
 
-from .ambiente import Ambiente  # noqa: F401
+class AgenteReativo:
+    def __int__(self) -> None:
+        pass
 
-__version__ = "0.1.0"
+    def perceber_ambiente(self) -> None:
+        pass
+
+    def andar(self) -> None:
+        pass
+
+    def atirar(self) -> None:
+        pass
+
+
+if __name__ == "__main__":
+    pass
