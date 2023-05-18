@@ -70,6 +70,7 @@ const config = {
           alt: 'My Site Logo',
           src: 'img/logo_1.svg',
         },
+        hideOnScroll: true,
         items: [
           {
             type: 'docSidebar',
@@ -89,10 +90,21 @@ const config = {
             label: 'GitHub',
             position: 'right',
           },
+          {
+            type: 'search',
+            position: 'right',
+          },
         ],
       },
       footer: {
         style: 'dark',
+        logo: {
+          alt: 'O Mundo do Wumpus',
+          src: 'img/logo_1.svg',
+          href: 'https://oseiasdfarias.github.io/IA_mundo_do_wumpus/',
+          width: 160,
+          height: 100,
+        },
         links: [
           {
             title: 'Docs',
@@ -138,11 +150,12 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} ia-wumpus, Inc. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        defaultLanguage: 'python',
       },
     }),
 };
