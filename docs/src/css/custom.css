@@ -7,11 +7,13 @@
 [data-theme='light']{
   --color-1card1: #b1b7c775;
   --color-navbar-bg: #dbdde1;
+  --color_navbar-sidebar: #FFFFFF;
 }
 
 [data-theme='dark']{
   --color-1card1: #33353cc4;
   --color-navbar-bg: #282c36;
+  --color_navbar-sidebar: #282c36;
 }
 
 .navbar{
@@ -22,9 +24,13 @@
   background-color: var(--color-1card1);
 }
 
+.navbar-sidebar {
+  background-color: var(--color_navbar-sidebar);
+}
+
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2A313E;
+  --ifm-color-primary: #0774BE;
   --ifm-color-primary-dark: #444b5dd0;
   --ifm-color-primary-darker: #3c4252d0;
   --ifm-color-primary-darkest: #363c4ad0;
@@ -38,7 +44,7 @@
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
   background-color: #353a48;
-  --ifm-color-primary: #b3bdd4;
+  --ifm-color-primary: #8967AA;
   --ifm-color-primary-dark: #7c89aad0;
   --ifm-color-primary-darker: #8998bfd0;
   --ifm-color-primary-darkest: #717c99d0;
