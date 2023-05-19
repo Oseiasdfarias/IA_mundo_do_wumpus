@@ -23,12 +23,16 @@ O **módulo ambiente** implementa a **Classe Ambiente** que é responsável por 
 
 | Métodos              | Descrição |
 |          :---        |    :----   |
-| `Ambiente.__add_pos_obj`        | Posiciona o objeto em um local válido no ambiente, para isso, usa o método `Ambiente.sortear_pos` para sortear a posição.  |
+| `Ambiente.atualiza_pos_agente`    |Atualiza a posição do Agente no Ambiente.  |
+| `Ambiente.get_pos_objetos`    |Obtem as posições dos Objetos no Ambiente. |
+| `Ambiente.get_percepcoes`    |Obtem as percepções dos Objetos no Ambiente. |
+| `Ambiente.__add_pos_obj_map`        | Posiciona o objeto em um local válido no ambiente, para isso, usa o método `Ambiente.__sortear_pos` para sortear a posição.  |
+| `Ambiente.__salvar_pos_objetos`        | PArmazena as posições dos Objetos em um dicionário Python.  |
 | `Ambiente.__sortear_pos`        | Sorteia uma posição para adicionar um objeto.  |
 | `Ambiente.__add_percepcoes_obj` | Posiciona as percepções de um dado objeto ao seu redor. |
-| `Ambiente.__add_pos_wumpus`     | Posiciona o(s) Wumpos e as suas percepções no ambiente, usa os métodos `Ambiente.__add_pos_obj` e `Ambiente.__add_percepcoes_obj` para realizar a lógica.  |
-| `Ambiente.add_pos_pocos`      | Posiciona os poços e as suas percepções no ambiente, usa os métodos `Ambiente.add_pos_obj` e  `Ambiente.__add_percepcoes_obj`  para realizar a lógica.  |
-| `Ambiente.add_pos_ouro`       | Posiciona o(s) Ouro(s) e as suas percepções no ambiente, usa o método `Ambiente.add_pos_obj` para realizar a lógica. |
+| `Ambiente.__add_pos_wumpus`     | Posiciona o(s) Wumpos e as suas percepções no ambiente, usa os métodos `Ambiente.__add_pos_obj_map` e `Ambiente.__add_percepcoes_obj` para realizar a lógica.  |
+| `Ambiente.add_pos_pocos`      | Posiciona os poços e as suas percepções no ambiente, usa os métodos `Ambiente.__add_pos_obj_map` e  `Ambiente.__add_percepcoes_obj`  para realizar a lógica.  |
+| `Ambiente.__add_pos_ouro`       | Posiciona o(s) Ouro(s) e as suas percepções no ambiente, usa o método `Ambiente.__add_pos_obj_map` para realizar a lógica. |
 | `Ambiente.__add_pos_agente`     | Adiciona o Agente na posição `[0, 0]`  |
 | `Ambiente.__menu`               | Menu com as descrições dos objetos.  |
 | `Ambiente.infos_ambiente`     | Mostra informações sobre o Mundo do Wumpus.  |
@@ -91,7 +95,7 @@ Mostra a matriz que representa o Mundo do Wumpus.
 ### Mundo de tamanho `3x3`
 
 **Código:**
-```python
+```python title="main.py"
 from ia_wumpus import Ambiente
 
 amb = Ambiente(dimensao_ambiente=3)
