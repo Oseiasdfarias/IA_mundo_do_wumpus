@@ -14,20 +14,59 @@
 #
 # Data: Maio - 2023
 #  ----------------------------------------------------
+from ambiente import Ambiente
+from typing import List, Tuple
+
 
 class AgenteReativo:
-    def __int__(self) -> None:
-        pass
+    def __init__(self, ambiente: Ambiente) -> None:
+        self.amb = ambiente
+        self.__opcoes_mov_agente: List = []
 
-    def perceber_ambiente(self) -> None:
-        pass
+    def opcoes_mov(self) -> None:
+        pos_agente = self.amb.get_pos_objetos()["agente"][0]
+        self.opcoes_mov_agente(pos_agente=pos_agente)
 
-    def andar(self) -> None:
-        pass
+    def opcoes_mov_agente(self, pos_agente: Tuple) -> None:
+        """Posiciona as percepções no Ambiente."""
+        self.__opcoes_mov_agente = []
+        dimensao_amb = self.amb.dimensoes[0]
+        if pos_agente[0] == 0:
+            self.__opcoes_mov_agente.append((pos_agente[1], pos_agente[0] + 1))
+        elif pos_agente[0] == (dimensao_amb - 1):
+            self.__opcoes_mov_agente.append((pos_agente[1], pos_agente[0] - 1))
+        elif (pos_agente[0] > 0) and (pos_agente[0] < (dimensao_amb - 1)):
+            self.__opcoes_mov_agente.append((pos_agente[1], pos_agente[0] + 1))
+            self.__opcoes_mov_agente.append((pos_agente[1], pos_agente[0] - 1))
+
+        if pos_agente[1] == 0:
+            self.__opcoes_mov_agente.append((pos_agente[1] + 1, pos_agente[0]))
+        elif pos_agente[1] == (dimensao_amb - 1):
+            self.__opcoes_mov_agente.append((pos_agente[1] - 1, pos_agente[0]))
+        elif (pos_agente[1] > 0) and (pos_agente[1] < (dimensao_amb - 1)):
+            self.__opcoes_mov_agente.append((pos_agente[1] + 1, pos_agente[0]))
+            self.__opcoes_mov_agente.append((pos_agente[1] - 1, pos_agente[0]))
+
+    def get_opcoes_mov_agente(self):
+        return self.__opcoes_mov_agente
 
     def atirar(self) -> None:
         pass
 
+    def mostrar_opcoes_mov(self):
+        print(self.__opcoes_mov_agente)
+
 
 if __name__ == "__main__":
-    pass
+    amb = Ambiente()
+    amb.mostrar_ambiente()
+
+    agente = AgenteReativo(amb)
+    agente.opcoes_mov()
+    agente.mostrar_opcoes_mov()
+
+    amb.atualiza_pos_agente((1, 1))
+    amb.mostrar_ambiente()
+
+    agente.opcoes_mov()
+    agente.mostrar_opcoes_mov()

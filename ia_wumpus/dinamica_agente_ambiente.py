@@ -19,14 +19,23 @@ from ia_wumpus import AgenteReativo, Ambiente
 
 class DinamicaAgenteAmbiente:
     def __init__(self) -> None:
-        pass
-
-    def gerar_ambiente(self):
         self.amb = Ambiente(dimensao_ambiente=5)
-        # self.amb.infos_ambiente()
-        self.amb.mostrar_ambiente()
+        self.ag_reativo = AgenteReativo()
+
+    def pos_percepcao(self, percepcao):
+        pos = self.amb.get_percepcoes[percepcao]
+        return pos
+
+    def verificar_percepcao_brisa(self):
+        pos_brisa = self.pos_percepcao("brisa")
+        pos_agente = self.amb.get_pos_objetos()
+        for i in pos_brisa:
+            if pos_brisa == pos_agente["agente"][0]:
+                pass
+
+    def verificar_pos_objetos(self):
+        self.amb.get_pos_objetos
 
 
 if __name__ == "__main__":
     jogo = DinamicaAgenteAmbiente()
-    jogo.gerar_ambiente()
