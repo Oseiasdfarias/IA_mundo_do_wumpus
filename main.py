@@ -1,11 +1,14 @@
 from ia_wumpus import Ambiente
+from ia_wumpus import AgenteReativo
 
 
-def run_mundo(dimensao_mundo=3):
-    amb = Ambiente(dimensao_ambiente=dimensao_mundo)
-    amb.mostrar_ambiente()
-    # amb.mostrar_percepcoes()
-
-
-if __name__ == "__main__":
-    run_mundo()
+amb = Ambiente(dimensao_ambiente=5)
+# amb.infos_ambiente()
+amb.mostrar_ambiente()
+# amb.mostrar_percepcoes()
+amb.atualiza_pos_agente((1, 1))
+amb.mostrar_ambiente()
+amb.atualiza_pos_agente((2, 2))
+amb.mostrar_ambiente()
+amb.atualiza_pos_agente((3, 3))
+amb.mostrar_ambiente()
