@@ -20,7 +20,7 @@ from ia_wumpus import AgenteReativo, Ambiente
 class DinamicaAgenteAmbiente:
     def __init__(self) -> None:
         self.amb = Ambiente(dimensao_ambiente=5)
-        self.ag_reativo = AgenteReativo()
+        self.ag_reativo = AgenteReativo(self.amb)
 
     def pos_percepcao(self, percepcao):
         pos = self.amb.get_percepcoes[percepcao]
