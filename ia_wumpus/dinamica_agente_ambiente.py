@@ -34,8 +34,9 @@ class DinamicaAgenteAmbiente:
                 pass
 
     def verificar_pos_objetos(self):
-        self.amb.get_pos_objetos
+        print(self.amb.get_pos_objetos())
 
 
 if __name__ == "__main__":
     jogo = DinamicaAgenteAmbiente()
+    jogo.verificar_pos_objetos()

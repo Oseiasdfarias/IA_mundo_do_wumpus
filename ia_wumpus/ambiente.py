@@ -65,9 +65,9 @@ class Ambiente:
     def atualiza_pos_agente(self, pos_agente: Tuple[int, int]) -> None:
         """Atualiza a posição do Agente no Ambiente."""
         self.__mundo[self.__pos_objetos["agente"][-1]] = 0
-        print("antes ", self.__pos_objetos["agente"][-1])
+        # print("antes ", self.__pos_objetos["agente"][-1])
         self.__pos_objetos["agente"] = [pos_agente]
-        print("depois ", self.__pos_objetos["agente"][-1])
+        # print("depois ", self.__pos_objetos["agente"][-1])
         self.__mundo[self.__pos_objetos["agente"][-1]] = 4
 
     def get_pos_objetos(self) -> Dict:
@@ -168,8 +168,8 @@ class Ambiente:
     def mostrar_percepcoes(self):
         """Exibe o dicionário com as posições das percepções."""
         print("\n======== Posições das Percepções - Mundo do Wumpus ========")
-        print(f"Posição Fedor  :\n\t{self.__pos_percepcoes['fedor']}\n")
-        print(f"Posições Brisa :\n\t{self.__pos_percepcoes['brisa']}\n")
+        print(f"Posição Fedor  :\n\t{self.__pos_percepcoes['fedor']}")
+        print(f"Posições Brisa :\n\t{self.__pos_percepcoes['brisa']}")
         print(f"Posição Brilho :\n\t{self.__pos_percepcoes['brilho']}")
         print("============================================================\n")
 

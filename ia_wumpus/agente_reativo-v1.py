@@ -14,11 +14,11 @@
 #
 # Data: Maio - 2023
 #  ----------------------------------------------------
-from ambiente import Ambiente
+from ia_wumpus import Ambiente
 from typing import List, Tuple
 
 
-class AgenteReativo:
+class AgenteReativoV1:
     def __init__(self, ambiente: Ambiente) -> None:
         self.amb = ambiente
         self.__opcoes_mov_agente: List = []
@@ -28,7 +28,8 @@ class AgenteReativo:
         self.opcoes_mov_agente(pos_agente=pos_agente)
 
     def opcoes_mov_agente(self, pos_agente: Tuple) -> None:
-        """Posiciona as percepções no Ambiente."""
+        """Verifica as possíveis opções de movimentação do agente
+        para a posição atual."""
         self.__opcoes_mov_agente = []
         dimensao_amb = self.amb.dimensoes[0]
         if pos_agente[0] == 0:
@@ -61,7 +62,7 @@ if __name__ == "__main__":
     amb = Ambiente()
     amb.mostrar_ambiente()
 
-    agente = AgenteReativo(amb)
+    agente = AgenteReativoV1(amb)
     agente.opcoes_mov()
     agente.mostrar_opcoes_mov()
 
