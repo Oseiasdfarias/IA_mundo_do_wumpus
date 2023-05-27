@@ -123,7 +123,7 @@ class Ambiente:
             pos_wumpus = self.__add_pos_obj_map(1)
             self.__salvar_pos_objetos(objeto="wumpus", pos_objeto=pos_wumpus)
             self.__add_percepcoes_obj(objeto="fedor", pos=pos_wumpus)
-            print(f"am Wumpus pos: {pos_wumpus}")
+            # print(f"am Wumpus pos: {pos_wumpus}")
 
     def __add_pos_pocos(self) -> None:
         """Posicionando os Poços no Ambiente."""
