@@ -17,7 +17,6 @@
 
 import numpy as np
 from random import randint
-import numpy.typing as npt
 from typing import Tuple, Dict
 
 
@@ -78,7 +77,7 @@ class Ambiente:
         """Obtem as percepções dos Objetos no Ambiente."""
         return self.__pos_percepcoes
 
-    def __add_pos_obj_map(self, obj: int) -> npt.NDArray:
+    def __add_pos_obj_map(self, obj: int) -> Tuple:
         """Posiciona os Objetos no Ambiente."""
         self.pos_sort = self.__sortear_pos()
         if self.__mundo[self.pos_sort[0], self.pos_sort[1]] == 0:
@@ -94,13 +93,13 @@ class Ambiente:
         """Armazena as posições dos Objetos em um dicionário Python."""
         self.__pos_objetos[objeto].append(pos_objeto)
 
-    def __sortear_pos(self) -> npt.NDArray:
+    def __sortear_pos(self) -> Tuple:
         """Sortea as posições dos Objetos no Ambiente."""
         x = randint(0, self.dimensoes[0]-1)
         y = randint(0, self.dimensoes[0]-1)
-        return np.array([x, y])
+        return (x, y)
 
-    def __add_percepcoes_obj(self, objeto: str, pos: npt.NDArray) -> None:
+    def __add_percepcoes_obj(self, objeto: str, pos: Tuple) -> None:
         """Posiciona as percepções no Ambiente."""
         if pos[0] == 0:
             self.__pos_percepcoes[objeto].append((pos[1], pos[0] + 1))
@@ -124,7 +123,7 @@ class Ambiente:
             pos_wumpus = self.__add_pos_obj_map(1)
             self.__salvar_pos_objetos(objeto="wumpus", pos_objeto=pos_wumpus)
             self.__add_percepcoes_obj(objeto="fedor", pos=pos_wumpus)
-            # print(f"Wumpus pos: {pos_wumpus}")
+            print(f"am Wumpus pos: {pos_wumpus}")
 
     def __add_pos_pocos(self) -> None:
         """Posicionando os Poços no Ambiente."""
@@ -145,7 +144,7 @@ class Ambiente:
     def __add_pos_agente(self) -> None:
         """Posicionando o(s) Agente(s) no Ambiente."""
         self.__mundo[(0, 0)] = 4
-        self.__salvar_pos_objetos(objeto="agente", pos_objeto=((0, 0)))
+        self.__salvar_pos_objetos(objeto="agente", pos_objeto=(0, 0))
 
     @staticmethod
     def __menu() -> None:

@@ -25,6 +25,11 @@ class DinamicaAgenteAmbiente:
     def pos_percepcao(self, percepcao):
         pos = self.amb.get_percepcoes[percepcao]
         return pos
+    
+    def verificar_agente_poco(self):
+        pos_objetos = self.amb.get_pos_objetos()
+        for pos in pos_objetos["poco"]:
+
 
     def verificar_percepcao_brisa(self):
         pos_brisa = self.pos_percepcao("brisa")
