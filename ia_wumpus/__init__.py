@@ -19,4 +19,4 @@ from .ambiente import Ambiente                   # noqa: F401
 from .agente_reativo_v1 import AgenteReativoV1   # noqa: F401
 
 
-__version__ = "0.3.1"
+__version__ = "0.3.0"
