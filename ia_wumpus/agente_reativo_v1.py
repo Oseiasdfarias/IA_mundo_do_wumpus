@@ -115,19 +115,19 @@ class AgenteReativoV1:
                     return
             print("Errou o tiro!")
 
-    def status_agente_ouro(self):
+    def status_agente_ouro(self) -> None:
         if self.pegou_ouro:
             print("O agente está com o ouro!")
         else:
             print("O agente está sem o ouro!")
 
-    def verificar_vitorio(self):
+    def verificar_vitorio(self) -> bool:
         if self.pegou_ouro:
             if self.amb.get_pos_objetos()["agente"][0] == (0, 0):
                 self.vitoria = True
         return self.vitoria
 
-    def ganhou_jogo(self):
+    def ganhou_jogo(self) -> None:
         if self.pegou_ouro:
             if self.amb.get_pos_objetos()["agente"][0] == (0, 0):
                 print(" \n============== Fim de Jogo ==============")
