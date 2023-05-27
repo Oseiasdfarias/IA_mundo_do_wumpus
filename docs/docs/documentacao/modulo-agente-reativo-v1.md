@@ -22,6 +22,20 @@ O **módulo agente-reativo-v1** implementa a **Classe AgenteReativoV1** que é r
 | Métodos              | Descrição |
 |          :---        |    :----   |
 | `AgenteReativoV1.opcoes_mov_agente`    |Verifica as possíveis opções de movimentação do agente para a posição atual.  |
+| `AgenteReativoV1.__opcoes_mov_agente`    | Verifica as possíveis opções de movimentação do agente para a posição atual. |
+| `AgenteReativoV1.verificar_morte_agente_wumpus`    | Verifica se o agente foi morto pelo Wumpus. |
+| `AgenteReativoV1.verificar_morte_agente_poco`    | Verifica se o agente caiu no poço. |
+| `AgenteReativoV1.pegar_outro`    | Pega o ouro caso esteja na mesma posição do agente. |
+| `AgenteReativoV1.status_agente_ouro`    | Informa se o agente pegou ou não o ouro. |
+| `AgenteReativoV1.__sentir_fedor`    | Verifica se na posição atual do agente existe a percepção de fedor. |
+| `AgenteReativoV1.sortear_pos`    | Sortea um item de uma lista, método usado para sortear posições |
+| `AgenteReativoV1.verificar_atirar_wumpus`    | Verifica se existe fedor na posição atual usando o método `AgenteReativoV1.__sentir_fedor`, a partir dessa validação, atira em uma direção para tentar matar o wumpus. |
+| `AgenteReativoV1.verificar_vitorio`    | Verifica se o agente venceu o jogo. |
+| `AgenteReativoV1.ganhou_jogo`    | Imprime a informação se o agente ganhou ou perdeu a partida. |
+| `AgenteReativoV1.get_opcoes_mov_agente`    | retorna as posições possíveis para o agente se mover, levando em consideração a posição atual. |
+| `AgenteReativoV1.mostrar_opcoes_mov`    |  Imprime as possições posiveis de o agente se mover, levando em consideração a posição atual|
+
+
 
 
 <!--
@@ -72,7 +86,9 @@ Mostra a matriz que representa o Mundo do Wumpus.
 
  Mostra as posições das percepções dos objetos.
  
+ -->
 
+Para que seja possível usar a classe `AgenteReativoV1` é preciso instáncia um objeto `Ambiente` e passar como argumento para a Classe `AgenteReativoV1`, o Exemplo 1 mostra a estrutura.
 
 ## Exemplos `1`
 
@@ -80,9 +96,16 @@ Mostra a matriz que representa o Mundo do Wumpus.
 
 **Código:**
 ```python title="main.py"
+from ia_wumpus import AgenteReativoV1
 from ia_wumpus import Ambiente
 
 amb = Ambiente(dimensao_ambiente=3)
+agente = AgenteReativoV1(amb)
+agente.verificar_atirar_wumpus()
+
+amb.mostrar_ambiente()
+pos_mov = agente.sortear_pos(agente.get_opcoes_mov())
+amb.atualiza_pos_agente(pos_mov)
 amb.mostrar_ambiente()
 ```
 
@@ -95,13 +118,87 @@ amb.mostrar_ambiente()
         + 3 - Ouro
         + 4 - Agente
 ====================================
+Agente sentiu fedor
+Pos tiro (0, 1)
+Errou o tiro!
 
 Mundo do Wumpus:
-[[4 1 0]
- [2 2 3]
- [0 0 2]]
+[[4 0 0]
+ [1 2 0]
+ [3 2 2]]
+
+Mundo do Wumpus:
+[[0 4 0]
+ [1 2 0]
+ [3 2 2]]
 ```
 
- -->
 
- # EM DESENVOLVIMENTO ...
+## Exemplos `2`
+
+Para fazer o jogo execultar até obter uma vitória, podemos usar loops while aninhados, dessa forma o primeiro loop só terminal quando o ouver uma vitóia, e o segundo loop é responsável por realizar a dinámica do ambiente.
+
+### Mundo de tamanho `3x3`
+
+**Código:**
+```python title="main.py"
+from ia_wumpus import Ambiente
+from ia_wumpus import AgenteReativoV1
+import os
+
+rodadas = 0
+while True:
+    amb = Ambiente()
+    amb.mostrar_ambiente()
+    agente = AgenteReativoV1(amb)
+    while True:
+        agente.verificar_atirar_wumpus()
+        pos_mov = agente.sortear_pos(agente.get_opcoes_mov())
+        amb.atualiza_pos_agente(pos_mov)
+        amb.mostrar_ambiente()
+        agente.pegar_outro()
+        agente.status_agente_ouro()
+        agente.verificar_morte_agente_wumpus()
+        agente.verificar_morte_agente_poco()
+        if agente.verificar_vitorio():
+            agente.ganhou_jogo()
+            print(f"Quantidade de rodadas: {rodadas}")
+            os._exit(0)
+        elif agente.morreu:
+            break
+    rodadas += 1
+```
+
+
+**Saída:**
+
+Dependendo da quantidade de vezes que o agente morre, a saída pode ser extensa, abaixo é mostrado
+as últimas saídas para uma execução do código.
+
+```
+
+.
+.
+.
+
+Mundo do Wumpus:
+[[0 2 0]
+ [4 2 0]
+ [2 0 1]]
+Agente pegou o ouro!
+O agente está com o ouro!
+
+Mundo do Wumpus:
+[[4 2 0]
+ [0 2 0]
+ [2 0 1]]
+O agente está com o ouro!
+
+============== Fim de Jogo ==============
+          VITÓRIA DO AGENTE
+=========================================
+
+Quantidade de rodadas: 12
+```
+
+Para que o `agente` vença a partida, ele deve pega o ouro e voltar para a posição inicial `(0, 0)`. Nessa execução precisou de 12 partidas para que o agente vencesse o jogo.

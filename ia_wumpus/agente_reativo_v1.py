@@ -90,6 +90,12 @@ class AgenteReativoV1:
                     print("Agente pegou o ouro!")
                     self.pegou_ouro = True
 
+    def status_agente_ouro(self) -> None:
+        if self.pegou_ouro:
+            print("O agente está com o ouro!")
+        else:
+            print("O agente está sem o ouro!")
+
     def __sentir_fedor(self) -> bool:
         pos_agente = self.amb.get_pos_objetos()["agente"][0]
         pos_fedor = self.amb.get_percepcoes()["fedor"]
@@ -99,14 +105,14 @@ class AgenteReativoV1:
                 return True
         return False
 
-    def sortear_item(self, opcoes: List) -> Tuple[int, int]:
+    def sortear_pos(self, opcoes: List) -> Tuple[int, int]:
         return random.choice(opcoes)
 
     def verificar_atirar_wumpus(self) -> None:
         self.get_opcoes_mov()
         if self.__sentir_fedor() and self.bala:
             self.bala = False
-            pos_tiro = self.sortear_item(self.__list_opc_mov_ag)
+            pos_tiro = self.sortear_pos(self.__list_opc_mov_ag)
             print("Pos tiro", pos_tiro)
             pos_wumpus = self.amb.get_pos_objetos()["wumpus"]
             for i in pos_wumpus:
@@ -114,12 +120,6 @@ class AgenteReativoV1:
                     print("Tiro e matou o Wumpos!")
                     return
             print("Errou o tiro!")
-
-    def status_agente_ouro(self) -> None:
-        if self.pegou_ouro:
-            print("O agente está com o ouro!")
-        else:
-            print("O agente está sem o ouro!")
 
     def verificar_vitorio(self) -> bool:
         if self.pegou_ouro:
@@ -149,7 +149,7 @@ if __name__ == "__main__":
         agente = AgenteReativoV1(amb)
         while True:
             agente.verificar_atirar_wumpus()
-            pos_mov = agente.sortear_item(agente.get_opcoes_mov())
+            pos_mov = agente.sortear_pos(agente.get_opcoes_mov())
             amb.atualiza_pos_agente(pos_mov)
             amb.mostrar_ambiente()
             agente.pegar_outro()
