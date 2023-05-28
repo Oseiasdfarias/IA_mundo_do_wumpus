@@ -23,6 +23,8 @@ O **módulo ambiente** implementa a **Classe Ambiente** que é responsável por 
 
 | Métodos              | Descrição |
 |          :---        |    :----   |
+| `Ambiente.tempo_pausa`    |Pausa a execução por um tempo determinado na inicialização da instáncia.|
+|`Ambiente.clear`|Limpa o terminal.|
 | `Ambiente.atualiza_pos_agente`    |Atualiza a posição do Agente no Ambiente.  |
 | `Ambiente.get_pos_objetos`    |Obtem as posições dos Objetos no Ambiente. |
 | `Ambiente.get_percepcoes`    |Obtem as percepções dos Objetos no Ambiente. |
