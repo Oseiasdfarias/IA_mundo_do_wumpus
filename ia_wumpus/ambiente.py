@@ -24,10 +24,10 @@ from os import system, name
 from time import sleep
 
 custom_theme = Theme({
-    "info": "purple",
+    "info1": "dim cyan bold",
     "color_mundo": "blue bold",
     "color_menus": "blue bold",
-    "info_bold": "purple bold",
+    "info2": "purple bold",
     "warning": "magenta",
     "green": "green",
     "danger": "red"
@@ -95,9 +95,7 @@ class Ambiente:
     def atualiza_pos_agente(self, pos_agente: Tuple[int, int]) -> None:
         """Atualiza a posição do Agente no Ambiente."""
         self.__mundo[self.__pos_objetos["agente"][-1]] = 0
-        # print("antes ", self.__pos_objetos["agente"][-1])
         self.__pos_objetos["agente"] = [pos_agente]
-        # print("depois ", self.__pos_objetos["agente"][-1])
         self.__mundo[self.__pos_objetos["agente"][-1]] = 4
 
     def get_pos_objetos(self) -> Dict:
@@ -160,7 +158,6 @@ class Ambiente:
             pos_wumpus = self.__add_pos_obj_map(1)
             self.__salvar_pos_objetos(objeto="wumpus", pos_objeto=pos_wumpus)
             self.__add_percepcoes_obj(objeto="fedor", pos=pos_wumpus)
-            # print(f"am Wumpus pos: {pos_wumpus}")
 
     def __add_pos_pocos(self) -> None:
         """Posicionando os Poços no Ambiente."""
@@ -168,7 +165,6 @@ class Ambiente:
             pos_poco = self.__add_pos_obj_map(2)
             self.__salvar_pos_objetos(objeto="pocos", pos_objeto=pos_poco)
             self.__add_percepcoes_obj(objeto="brisa", pos=pos_poco)
-            # print(f"Poço pos: {pos_poco}")
 
     def __add_pos_ouro(self) -> None:
         """Posicionando o(s) Ouro(s) no Ambiente."""
@@ -176,7 +172,6 @@ class Ambiente:
             pos_ouro = self.__add_pos_obj_map(3)
             self.__salvar_pos_objetos(objeto="ouro", pos_objeto=pos_ouro)
             self.__pos_percepcoes["brilho"].append((pos_ouro[1], pos_ouro[0]))
-            # print(f"Ouro pos: {pos_ouro}")
 
     def __add_pos_agente(self) -> None:
         """Posicionando o(s) Agente(s) no Ambiente."""
@@ -209,19 +204,25 @@ class Ambiente:
         self.tempo_pausa()
 
     def mostrar_percepcoes(self):
+        style = "info2"
         """Exibe o dicionário com as posições das percepções."""
-        print("\n======== Posições das Percepções - Mundo do Wumpus ========")
-        print(f"Posição Fedor  :\n\t{self.__pos_percepcoes['fedor']}")
-        print(f"Posições Brisa :\n\t{self.__pos_percepcoes['brisa']}")
-        print(f"Posição Brilho :\n\t{self.__pos_percepcoes['brilho']}")
-        print("============================================================\n")
+        console.print("\n================ Posições das Percepções =========",
+                      style=style)
+        console.print(f"Posição Fedor  :\n\t{self.__pos_percepcoes['fedor']}",
+                      style=style)
+        console.print(f"Posições Brisa :\n\t{self.__pos_percepcoes['brisa']}",
+                      style=style)
+        console.print(f"Posição Brilho :\n\t{self.__pos_percepcoes['brilho']}",
+                      style=style)
+        console.print("==================================================\n",
+                      style=style)
 
 
 if __name__ == "__main__":
     amb = Ambiente(dimensao_ambiente=5)
     # amb.infos_ambiente()
     amb.mostrar_ambiente()
-    # amb.mostrar_percepcoes()
+    amb.mostrar_percepcoes()
     amb.atualiza_pos_agente((0, 1))
     amb.mostrar_ambiente()
     amb.atualiza_pos_agente((0, 2))
@@ -235,3 +236,4 @@ if __name__ == "__main__":
     amb.mostrar_ambiente()
     amb.atualiza_pos_agente((2, 4))
     amb.mostrar_ambiente()
+    amb.mostrar_percepcoes()

@@ -48,6 +48,7 @@ class AgenteReativoV1:
         """
         pos_agente = self.amb.get_pos_objetos()["agente"][0]
         self.__opcoes_mov_agente(pos_agente=pos_agente)
+        print(self.__list_opc_mov_ag)
         return self.__list_opc_mov_ag
 
     def __opcoes_mov_agente(self, pos_agente: Tuple) -> None:
@@ -190,8 +191,10 @@ class AgenteReativoV1:
 
 if __name__ == "__main__":
     rodadas = 0
+    passos = 0
     while True:
-        amb = Ambiente()
+        passos = 0
+        amb = Ambiente(dimensao_ambiente=5, t_pausa=0.0)
         amb.mostrar_ambiente()
         agente = AgenteReativoV1(amb)
         while True:
@@ -204,9 +207,14 @@ if __name__ == "__main__":
             agente.verificar_morte_agente_wumpus()
             agente.verificar_morte_agente_poco()
             if agente.verificar_vitorio():
+                passos += 1
+                rodadas += 1
                 agente.ganhou_jogo()
-                print(f"Quantidade de rodadas: {rodadas}")
+                print(f"Quantidade de passos no Ambiente: {passos}")
+                print(f"Quantidade de rodadas: {rodadas}\n")
                 os._exit(0)
             elif agente.morreu:
                 break
+            passos += 1
+        print(f"Quantidade de passos no Ambiente: {passos}")
         rodadas += 1
