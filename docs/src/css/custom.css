@@ -6,14 +6,16 @@
 
 [data-theme='light']{
   --color-1card1: #b1b7c775;
-  --color-navbar-bg: #dbdde1;
-  --color_navbar-sidebar: #FFFFFF;
+  --color-navbar-bg: #e4e8f2;
+  --color_navbar-sidebar: #e4e8f2;
+  --color_main_bg: #e4e8f2;
 }
 
 [data-theme='dark']{
   --color-1card1: #33353cc4;
-  --color-navbar-bg: #282c36;
-  --color_navbar-sidebar: #282c36;
+  --color-navbar-bg: #3B4252;
+  --color_navbar-sidebar: #3B4252;
+  --color_main_bg: #3B4252;
 }
 
 .navbar{
@@ -26,6 +28,10 @@
 
 .navbar-sidebar {
   background-color: var(--color_navbar-sidebar);
+}
+
+.main_bg {
+  background-color: var(--color_main_bg);
 }
 
 /* You can override the default Infima variables here. */

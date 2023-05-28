@@ -44,7 +44,7 @@ export default function Home() {
       title={`${siteConfig.title}`}
       description="Ambiente para estudos de Inteligência Computacional.">
       <HomepageHeader />
-      <main>
+      <main class="main_bg">
         <HomepageFeatures />
       </main>
     </Layout>
