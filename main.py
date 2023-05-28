@@ -24,11 +24,11 @@ while True:
             passos += 1
             rodadas += 1
             agente.ganhou_jogo()
-            print(f"Quantidade de passos no Ambiente: {passos}")
-            print(f"Quantidade de rodadas: {rodadas}\n")
+            print(f"[red italic bold]Qt. de passos no Ambiente: {passos}[/]")
+            print(f"[red italic bold]Qt. de rodadas: {rodadas}\n[/]")
             os._exit(0)
         elif agente.morreu:
             break
         passos += 1
-    print(f"Quantidade de passos no Ambiente: {passos}")
+    print(f"[red italic bold]Qt. de passos no Ambiente: {passos}[/]")
     rodadas += 1

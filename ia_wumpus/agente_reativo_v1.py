@@ -48,7 +48,6 @@ class AgenteReativoV1:
         """
         pos_agente = self.amb.get_pos_objetos()["agente"][0]
         self.__opcoes_mov_agente(pos_agente=pos_agente)
-        print(self.__list_opc_mov_ag)
         return self.__list_opc_mov_ag
 
     def __opcoes_mov_agente(self, pos_agente: Tuple) -> None:

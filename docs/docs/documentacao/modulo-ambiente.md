@@ -5,7 +5,18 @@ custom_edit_url: null
 
 # Módulo ambiente
 
+## Descrição do módulo
+
 O **módulo ambiente** implementa a **Classe Ambiente** que é responsável por construir o cenário do **mundo do Wumpus**, além disso, a classe implementa métodos que posicionam os objetos e suas **percepções** de forma correta no ambiente.
+
+## Expeficicações do Ambiente
+
+- Tamanho (n) = ordem(n) da matriz quadrada (n >= 3). Linha e coluna = (n - 1);
+- Objetos: poços (p), Wumpus (W) e ouro (o). Quantidade? [São parâmetros definidos pelo usuário (p, W, o >= O). E, também, podem ser atribuídos automaticamente, de acordo com o tamanho do ambiente (n), via a definição de alguma regra].
+- A partir dos objetos, posicionar no ambiente, também, as percepções geradas por cada um deles.
+- A casa (0,0) é a única que não pode ter nenhum objeto, pois é a posição inicial do Agente
+- Onde houver poço não pode ser posicionado o ouro e o Wumpus. No entanto, estes podem ser posicionados em quaisquer uma das outras casas.
+
 
 ## Classe
 

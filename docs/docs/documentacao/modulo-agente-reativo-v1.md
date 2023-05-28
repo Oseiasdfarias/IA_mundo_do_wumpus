@@ -5,7 +5,18 @@ custom_edit_url: null
 
 # Módulo agente-reativo-v1
 
-O **módulo agente-reativo-v1** implementa a **Classe AgenteReativoV1** que é responsável por criar a dinâmica do agente no **Mundo de Wunpus**.
+## Descrição do módulo
+
+O **módulo agente-reativo-v1** implementa a **Classe AgenteReativoV1** que é responsável por criar a dinâmica do agente no **Mundo de Wunpus**, possibilitando que o agente se mova no ambiente e tome as decisões necessárias para cumprir a tarefa, que no caso desse agente é pegar o ouro e retornar a posição inicial, para isso, é preciso não cair em poços ou ter contato com o wumpus, caso isso ocorra o agente morre.
+
+## Expeficicações do Agente Reativo (V1)
+
+- O comportamento do Agente é definido a partir de seu conjunto de regras:
+    + Se < percepções > então < ação >.
+- Este conjunto de regras (ou Base de Conhecimento) deve ser especificado por meio de uma tabela, aos moldes da que foi especificada, inicialmente, na “Aula 04';
+- A partir da especificação, o próximo passo é codificar o Agente e integrar ao “Gerador Aleatório de Ambientes, de forma a ossibilitar a realização de testes de validação para posterior avaliação de performance;
+- Obs.: Serão projetadas várias versões deste Agente. Nesta primeira versão, ele utiliza apenas o conjunto de regras como base de conhecimento. Ou seja, não tem memória e nenhum outro mecanismo mais sofisticado para escolher qual das possíveis regras utilizar. Para isto, deve ser uma escolha aleatória. Além disso, ele tem apenas uma única flecha.
+
 
 ## Classe
 
@@ -144,13 +155,15 @@ Para fazer o jogo execultar até obter uma vitória, podemos usar loops while an
 ```python title="main.py"
 from ia_wumpus import Ambiente
 from ia_wumpus import AgenteReativoV1
+from rich import print
 import os
 
 rodadas = 0
 passos = 0
+
 while True:
     passos = 0
-    amb = Ambiente(dimensao_ambiente=5)
+    amb = Ambiente(dimensao_ambiente=5, t_pausa=0.0)
     amb.mostrar_ambiente()
     agente = AgenteReativoV1(amb)
     while True:
@@ -166,14 +179,15 @@ while True:
             passos += 1
             rodadas += 1
             agente.ganhou_jogo()
-            print(f"Quantidade de passos no Ambiente: {passos}")
-            print(f"Quantidade de rodadas: {rodadas}\n")
+            print(f"[red italic bold]Qt. de passos no Ambiente: {passos}[/]")
+            print(f"[red italic bold]Qt. de rodadas: {rodadas}\n[/]")
             os._exit(0)
         elif agente.morreu:
             break
         passos += 1
-    print(f"Quantidade de passos no Ambiente: {passos}")
+    print(f"[red italic bold]Qt. de passos no Ambiente: {passos}[/]")
     rodadas += 1
+
 ```
 
 
@@ -188,27 +202,28 @@ as últimas saídas para uma execução do código.
 .
 
 Mundo do Wumpus:
-[[0 4 0 0 0]
- [0 0 0 1 0]
- [0 0 2 0 0]
- [2 0 0 0 0]
- [2 2 0 0 2]]
-O agente está com o ouro!
+[[0 4 0 0 2]
+ [0 0 0 0 2]
+ [0 0 0 0 0]
+ [2 0 0 0 2]
+ [0 1 0 0 2]]
+[INFO:] O agente está com o ouro!
 
 Mundo do Wumpus:
-[[4 0 0 0 0]
- [0 0 0 1 0]
- [0 0 2 0 0]
- [2 0 0 0 0]
- [2 2 0 0 2]]
-O agente está com o ouro!
+[[4 0 0 0 2]
+ [0 0 0 0 2]
+ [0 0 0 0 0]
+ [2 0 0 0 2]
+ [0 1 0 0 2]]
+[INFO:] O agente está com o ouro!
 
 ============== Fim de Jogo ==============
           VITÓRIA DO AGENTE
 =========================================
 
-Quantidade de passos no Ambiente: 12
-Quantidade de rodadas: 22
+Qt. de passos no Ambiente: 8
+Qt. de rodadas: 6
+
 ```
 
 Para que o `agente` vença a partida, ele deve pega o ouro e voltar para a posição inicial `(0, 0)`. Nessa execução precisou de 12 partidas para que o agente vencesse o jogo.
