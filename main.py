@@ -6,7 +6,7 @@ rodadas = 0
 passos = 0
 while True:
     passos = 0
-    amb = Ambiente(dimensao_ambiente=5)
+    amb = Ambiente(dimensao_ambiente=30)
     amb.mostrar_ambiente()
     agente = AgenteReativoV1(amb)
     while True:
@@ -20,6 +20,7 @@ while True:
         agente.verificar_morte_agente_poco()
         if agente.verificar_vitorio():
             passos += 1
+            rodadas += 1
             agente.ganhou_jogo()
             print(f"Quantidade de passos no Ambiente: {passos}")
             print(f"Quantidade de rodadas: {rodadas}\n")

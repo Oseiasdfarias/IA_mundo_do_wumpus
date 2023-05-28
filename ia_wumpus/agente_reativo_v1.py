@@ -32,6 +32,7 @@ class AgenteReativoV1:
     def get_opcoes_mov(self) -> List:
         pos_agente = self.amb.get_pos_objetos()["agente"][0]
         self.__opcoes_mov_agente(pos_agente=pos_agente)
+        print("Opçoes andar: ", self.__list_opc_mov_ag)
         return self.__list_opc_mov_ag
 
     def __opcoes_mov_agente(self, pos_agente: Tuple) -> None:
@@ -42,20 +43,20 @@ class AgenteReativoV1:
         self.__list_opc_mov_ag = []
         dimensao_amb = self.amb.dimensoes[0]
         if pos_agente[0] == 0:
-            self.__list_opc_mov_ag.append((pos_agente[1], pos_agente[0] + 1))
+            self.__list_opc_mov_ag.append((pos_agente[0] + 1, pos_agente[1]))
         elif pos_agente[0] == (dimensao_amb - 1):
-            self.__list_opc_mov_ag.append((pos_agente[1], pos_agente[0] - 1))
+            self.__list_opc_mov_ag.append((pos_agente[0] - 1, pos_agente[1]))
         elif (pos_agente[0] > 0) and (pos_agente[0] < (dimensao_amb - 1)):
-            self.__list_opc_mov_ag.append((pos_agente[1], pos_agente[0] + 1))
-            self.__list_opc_mov_ag.append((pos_agente[1], pos_agente[0] - 1))
+            self.__list_opc_mov_ag.append((pos_agente[0] + 1, pos_agente[1]))
+            self.__list_opc_mov_ag.append((pos_agente[0] - 1, pos_agente[1]))
 
         if pos_agente[1] == 0:
-            self.__list_opc_mov_ag.append((pos_agente[1] + 1, pos_agente[0]))
+            self.__list_opc_mov_ag.append((pos_agente[0], pos_agente[1] + 1))
         elif pos_agente[1] == (dimensao_amb - 1):
-            self.__list_opc_mov_ag.append((pos_agente[1] - 1, pos_agente[0]))
+            self.__list_opc_mov_ag.append((pos_agente[0], pos_agente[1] - 1))
         elif (pos_agente[1] > 0) and (pos_agente[1] < (dimensao_amb - 1)):
-            self.__list_opc_mov_ag.append((pos_agente[1] + 1, pos_agente[0]))
-            self.__list_opc_mov_ag.append((pos_agente[1] - 1, pos_agente[0]))
+            self.__list_opc_mov_ag.append((pos_agente[0], pos_agente[1] + 1))
+            self.__list_opc_mov_ag.append((pos_agente[0], pos_agente[1] - 1))
 
     def verificar_morte_agente_wumpus(self) -> None:
         pos_wumpus = self.amb.get_pos_objetos()["wumpus"]
