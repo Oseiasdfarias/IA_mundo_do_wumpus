@@ -147,8 +147,10 @@ from ia_wumpus import AgenteReativoV1
 import os
 
 rodadas = 0
+passos = 0
 while True:
-    amb = Ambiente()
+    passos = 0
+    amb = Ambiente(dimensao_ambiente=5)
     amb.mostrar_ambiente()
     agente = AgenteReativoV1(amb)
     while True:
@@ -161,12 +163,17 @@ while True:
         agente.verificar_morte_agente_wumpus()
         agente.verificar_morte_agente_poco()
         if agente.verificar_vitorio():
+            passos += 1
             agente.ganhou_jogo()
-            print(f"Quantidade de rodadas: {rodadas}")
+            print(f"Quantidade de passos no Ambiente: {passos}")
+            print(f"Quantidade de rodadas: {rodadas}\n")
             os._exit(0)
         elif agente.morreu:
             break
+        passos += 1
+    print(f"Quantidade de passos no Ambiente: {passos}")
     rodadas += 1
+
 ```
 
 
@@ -176,29 +183,32 @@ Dependendo da quantidade de vezes que o agente morre, a saída pode ser extensa,
 as últimas saídas para uma execução do código.
 
 ```
-
 .
 .
 .
 
 Mundo do Wumpus:
-[[0 2 0]
- [4 2 0]
- [2 0 1]]
-Agente pegou o ouro!
+[[0 4 0 0 0]
+ [0 0 0 1 0]
+ [0 0 2 0 0]
+ [2 0 0 0 0]
+ [2 2 0 0 2]]
 O agente está com o ouro!
 
 Mundo do Wumpus:
-[[4 2 0]
- [0 2 0]
- [2 0 1]]
+[[4 0 0 0 0]
+ [0 0 0 1 0]
+ [0 0 2 0 0]
+ [2 0 0 0 0]
+ [2 2 0 0 2]]
 O agente está com o ouro!
 
 ============== Fim de Jogo ==============
           VITÓRIA DO AGENTE
 =========================================
 
-Quantidade de rodadas: 12
+Quantidade de passos no Ambiente: 12
+Quantidade de rodadas: 22
 ```
 
 Para que o `agente` vença a partida, ele deve pega o ouro e voltar para a posição inicial `(0, 0)`. Nessa execução precisou de 12 partidas para que o agente vencesse o jogo.
