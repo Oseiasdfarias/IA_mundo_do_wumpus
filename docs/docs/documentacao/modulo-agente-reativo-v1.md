@@ -92,7 +92,7 @@ Para que seja possível usar a classe `AgenteReativoV1` é preciso instáncia um
 
 ## Exemplos `1`
 
-### Mundo de tamanho `3x3`
+### Tamanho do mundo `3x3`
 
 **Código:**
 ```python title="main.py"
@@ -138,7 +138,7 @@ Mundo do Wumpus:
 
 Para fazer o jogo execultar até obter uma vitória, podemos usar loops while aninhados, dessa forma o primeiro loop só terminal quando o ouver uma vitóia, e o segundo loop é responsável por realizar a dinámica do ambiente.
 
-### Mundo de tamanho `3x3`
+### Tamanho do mundo `5x5`
 
 **Código:**
 ```python title="main.py"
@@ -164,6 +164,7 @@ while True:
         agente.verificar_morte_agente_poco()
         if agente.verificar_vitorio():
             passos += 1
+            rodadas += 1
             agente.ganhou_jogo()
             print(f"Quantidade de passos no Ambiente: {passos}")
             print(f"Quantidade de rodadas: {rodadas}\n")
@@ -173,7 +174,6 @@ while True:
         passos += 1
     print(f"Quantidade de passos no Ambiente: {passos}")
     rodadas += 1
-
 ```
 
 

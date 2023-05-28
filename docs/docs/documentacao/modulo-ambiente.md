@@ -5,7 +5,7 @@ custom_edit_url: null
 
 # Módulo ambiente
 
-O **módulo ambiente** implementa a **Classe Ambiente** que é responsável por construir o cenário do **mundo do Wumpus**, além disso, a classe implementa métodos que posiciona as **percepções** dos objetos corretamente no ambiente.
+O **módulo ambiente** implementa a **Classe Ambiente** que é responsável por construir o cenário do **mundo do Wumpus**, além disso, a classe implementa métodos que posicionam os objetos e suas **percepções** de forma correta no ambiente.
 
 ## Classe
 
@@ -92,7 +92,7 @@ Mostra a matriz que representa o Mundo do Wumpus.
 
 ## Exemplos `1`
 
-### Mundo de tamanho `3x3`
+### Tamanho do mundo `3x3`
 
 **Código:**
 ```python title="main.py"
@@ -123,7 +123,7 @@ Mundo do Wumpus:
 Esse exemplo mostra a matriz que representa o ambiente com os objetos em suas posições e as posições
 das percepções dos objetos.
 
-### Mundo de tamanho `3x3`
+### Tamanho do mundo `3x3`
 
 **Código:**
 ```python title="main.py"
@@ -166,7 +166,7 @@ Para realizar a atualização basta usar o método `Ambiente.mostrar_ambiente()`
 com as coordenadas válidas dos eixos `x` e `y`, Para visualizar a atualização da posição, basta usar o 
 método `Ambiente.mostrar_ambiente()` após atualizar a posição.
 
-### Mundo de tamanho `3x3`
+### Tamanho do mundo `3x3`
 
 **Código:**
 ```python title="main.py"
