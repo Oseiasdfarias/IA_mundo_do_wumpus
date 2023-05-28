@@ -1,12 +1,14 @@
 from ia_wumpus import Ambiente
 from ia_wumpus import AgenteReativoV1
+from rich import print
 import os
 
 rodadas = 0
 passos = 0
+
 while True:
     passos = 0
-    amb = Ambiente(dimensao_ambiente=30)
+    amb = Ambiente(dimensao_ambiente=5, t_pausa=0.0)
     amb.mostrar_ambiente()
     agente = AgenteReativoV1(amb)
     while True:

@@ -17,7 +17,19 @@
 from ia_wumpus import Ambiente
 import os
 import random
+from rich.console import Console
+from rich.theme import Theme
+# from loguru import logger
 from typing import List, Tuple
+
+custom_theme = Theme({
+    "info": "purple bold",
+    "info_bold": "purple bold",
+    "warning": "yellow bold",
+    "green": "green bold",
+    "danger": "bold red"
+})
+console = Console(theme=custom_theme)
 
 
 class AgenteReativoV1:
@@ -30,9 +42,12 @@ class AgenteReativoV1:
         self.morreu: bool = False
 
     def get_opcoes_mov(self) -> List:
+        """
+        Método responsável por obter as possíveis obções de movimentação
+        do agente no ambiente.
+        """
         pos_agente = self.amb.get_pos_objetos()["agente"][0]
         self.__opcoes_mov_agente(pos_agente=pos_agente)
-        print("Opçoes andar: ", self.__list_opc_mov_ag)
         return self.__list_opc_mov_ag
 
     def __opcoes_mov_agente(self, pos_agente: Tuple) -> None:
@@ -59,50 +74,77 @@ class AgenteReativoV1:
             self.__list_opc_mov_ag.append((pos_agente[0], pos_agente[1] - 1))
 
     def verificar_morte_agente_wumpus(self) -> None:
+        """
+        Método responsável por verificar se o agente foi morto pelo wumpos,
+        isso occore quando o agente se move para a mesma posição do wumpus.
+        """
         pos_wumpus = self.amb.get_pos_objetos()["wumpus"]
         pos_agente = self.amb.get_pos_objetos()["agente"]
         for i in pos_wumpus:
             for j in pos_agente:
                 if i == j:
-                    print("Wumpus Matou o Agente!")
-                    print(" \n============== Fim de Jogo ==============")
-                    print("          DERROTA DO AGENTE ")
-                    print("=========================================\n")
+                    # self.amb.clear()
+                    console.print("\nWumpus Matou o Agente!", style="danger")
+                    console.print(" \n============= Fim de Jogo =============",
+                                  style="danger")
+                    console.print("          DERROTA DO AGENTE ",
+                                  style="danger")
+                    console.print("=======================================\n",
+                                  style="danger")
                     self.morreu = True
 
     def verificar_morte_agente_poco(self) -> None:
+        """
+        Método responsável por verificar se o agente moveu ao cair em um
+        poço.
+        """
         pos_wumpus = self.amb.get_pos_objetos()["pocos"]
         pos_agente = self.amb.get_pos_objetos()["agente"]
         for i in pos_wumpus:
             for j in pos_agente:
                 if i == j:
-                    print("Agente caiu no poço e morreu!")
-                    print(" \n============== Fim de Jogo ==============")
-                    print("          DERROTA DO AGENTE ")
-                    print("=========================================\n")
+                    # self.amb.clear()
+                    console.print("Agente caiu no poço e morreu!",
+                                  style="danger")
+                    console.print(" \n============= Fim de Jogo =============",
+                                  style="danger")
+                    console.print("          DERROTA DO AGENTE ",
+                                  style="danger")
+                    console.print("=======================================\n",
+                                  style="danger")
                     self.morreu = True
 
     def pegar_outro(self) -> None:
+        """
+        Método usado para o agente pegar o ouro caso esteja na mesma posição
+        do ouro.
+        """
         pos_ouro = self.amb.get_pos_objetos()["ouro"]
         pos_agente = self.amb.get_pos_objetos()["agente"]
         for i in pos_ouro:
             for j in pos_agente:
                 if i == j:
-                    print("Agente pegou o ouro!")
+                    console.print("[INFO:] Agente pegou o ouro!",
+                                  style="green")
                     self.pegou_ouro = True
+                    self.amb.set_percepcao_ouro()
+                    self.amb.set_pos_ouro()
 
     def status_agente_ouro(self) -> None:
         if self.pegou_ouro:
-            print("O agente está com o ouro!")
+            console.print("[INFO:] O agente está com o ouro!",
+                          style="green")
         else:
-            print("O agente está sem o ouro!")
+            console.print("[WARN:] O agente está sem o ouro!",
+                          style="warning")
 
     def __sentir_fedor(self) -> bool:
         pos_agente = self.amb.get_pos_objetos()["agente"][0]
         pos_fedor = self.amb.get_percepcoes()["fedor"]
         for i in pos_fedor:
             if i == pos_agente:
-                print("Agente sentiu fedor")
+                console.print("[WARN:] Agente sentiu fedor",
+                              style="warning")
                 return True
         return False
 
@@ -114,13 +156,14 @@ class AgenteReativoV1:
         if self.__sentir_fedor() and self.bala:
             self.bala = False
             pos_tiro = self.sortear_pos(self.__list_opc_mov_ag)
-            print("Pos tiro", pos_tiro)
             pos_wumpus = self.amb.get_pos_objetos()["wumpus"]
             for i in pos_wumpus:
                 if i == pos_tiro:
-                    print("Tiro e matou o Wumpos!")
+                    console.print("[INFO] Tiro e matou o Wumpos!",
+                                  style="green")
                     return
-            print("Errou o tiro!")
+            console.print("[DANG] Errou o tiro!",
+                          style="danger")
 
     def verificar_vitorio(self) -> bool:
         if self.pegou_ouro:
@@ -131,9 +174,12 @@ class AgenteReativoV1:
     def ganhou_jogo(self) -> None:
         if self.pegou_ouro:
             if self.amb.get_pos_objetos()["agente"][0] == (0, 0):
-                print(" \n============== Fim de Jogo ==============")
-                print("          VITÓRIA DO AGENTE ")
-                print("=========================================\n")
+                console.print("\n============== Fim de Jogo ==============",
+                              style="info")
+                console.print("          VITÓRIA DO AGENTE",
+                              style="info_bold")
+                console.print("=========================================\n",
+                              style="info")
 
     def get_opcoes_mov_agente(self) -> List:
         return self.__list_opc_mov_ag

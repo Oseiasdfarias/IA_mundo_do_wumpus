@@ -18,6 +18,21 @@
 import numpy as np
 from random import randint
 from typing import Tuple, Dict
+from rich.console import Console
+from rich.theme import Theme
+from os import system, name
+from time import sleep
+
+custom_theme = Theme({
+    "info": "purple",
+    "color_mundo": "blue bold",
+    "color_menus": "blue bold",
+    "info_bold": "purple bold",
+    "warning": "magenta",
+    "green": "green",
+    "danger": "red"
+})
+console = Console(theme=custom_theme)
 
 
 class Ambiente:
@@ -26,7 +41,10 @@ class Ambiente:
         do Mundo do Wumpus.
     """
     def __init__(self, dimensao_ambiente: int = 3,
-                 wumpus: int = 1, ouro: int = 1) -> None:
+                 wumpus: int = 1, ouro: int = 1,
+                 t_pausa: float = 0.0) -> None:
+        self.clear()
+        self.t_pausa = t_pausa
         if dimensao_ambiente < 3:
             self.dimensao_ambiente = 3
         else:
@@ -60,6 +78,19 @@ class Ambiente:
         self.__add_pos_ouro()
         # Menu
         self.__menu()
+        if self.t_pausa < 2:
+            sleep(3.0*self.t_pausa)
+        else:
+            sleep(3.0)
+
+    def tempo_pausa(self):
+        sleep(self.t_pausa)
+
+    def clear(self):
+        if name == 'nt':
+            _ = system('cls')
+        else:
+            _ = system('clear')
 
     def atualiza_pos_agente(self, pos_agente: Tuple[int, int]) -> None:
         """Atualiza a posição do Agente no Ambiente."""
@@ -73,9 +104,15 @@ class Ambiente:
         """Obtem as posições dos Objetos no Ambiente."""
         return self.__pos_objetos
 
+    def set_pos_ouro(self) -> None:
+        self.__pos_objetos["ouro"] = []
+
     def get_percepcoes(self) -> Dict:
         """Obtem as percepções dos Objetos no Ambiente."""
         return self.__pos_percepcoes
+
+    def set_percepcao_ouro(self) -> None:
+        self.__pos_percepcoes["brilho"] = []
 
     def __add_pos_obj_map(self, obj: int) -> Tuple:
         """Posiciona os Objetos no Ambiente."""
@@ -149,20 +186,27 @@ class Ambiente:
     @staticmethod
     def __menu() -> None:
         """Menu com a descrições dos Objetos."""
-        print("\n====== Menu - Mundo do Wumpus ======")
-        print("\t+ 1 - Wumpus")
-        print("\t+ 2 - Poços")
-        print("\t+ 3 - Ouro")
-        print("\t+ 4 - Agente")
-        print("====================================")
+        console.print("\n\n|+|+|+|+|+|+|+|+| Inicio do Jogo |+|+|+|+|+|+|+|+|",
+                      style="color_menus")
+        console.print("\n====== Menu - Mundo do Wumpus ======",
+                      style="color_menus")
+        console.print("\t+ 1 - Wumpus", style="color_menus")
+        console.print("\t+ 2 - Poços", style="color_menus")
+        console.print("\t+ 3 - Ouro", style="color_menus")
+        console.print("\t+ 4 - Agente", style="color_menus")
+        console.print("====================================",
+                      style="color_menus")
 
     def infos_ambiente(self) -> None:
         """Exibe a dimensão do mundo do Wumpus."""
-        print(f"\nTamanho do Ambiente: {self.__mundo.shape}")
+        console.print(f"\nTamanho do Ambiente: {self.__mundo.shape}",
+                      style="color_mundo")
 
     def mostrar_ambiente(self) -> None:
         """Exibe o Mundo do Wumpus com os objetos em suas posições."""
-        print(f"\nMundo do Wumpus:\n{self.__mundo}")
+        console.print(f"\n[gray]Mundo do Wumpus:\n{self.__mundo}",
+                      style="color_mundo")
+        self.tempo_pausa()
 
     def mostrar_percepcoes(self):
         """Exibe o dicionário com as posições das percepções."""
