@@ -16,7 +16,7 @@ Ambiente para estudo de modelos de Apredizagem de Máquina da disciplina de Inte
 
 # Versões do Projeto
 
-<img src="https://github.com/Oseiasdfarias/IA_mundo_do_wumpus/blob/main/utils/code_demo.png?raw=true" alt="Ambiente Mundo do Wumpus." style="width:900px">
+<img src="https://raw.githubusercontent.com/Oseiasdfarias/IA_mundo_do_wumpus/340951a7d59c7ce6e3c981455b77638781b23d52/docs/static/img/code_demo.svg" alt="Ambiente Mundo do Wumpus." style="width:900px">
 
 <br>
 

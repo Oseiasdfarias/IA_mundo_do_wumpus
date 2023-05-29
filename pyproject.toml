@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ia-wumpus"
-version = "0.3.5"
+version = "0.3.6"
 description = "Projeto O Mundo do Wumpus - Anbiente para estudo da disciplina de Inteligencia Computacional."
 authors = ["Oseiasdfarias <oseias.dfarias@gmail.com>"]
 readme = "README.md"
