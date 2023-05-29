@@ -24,6 +24,7 @@ from typing import List, Tuple
 
 custom_theme = Theme({
     "info": "purple bold",
+    "info2": "red italic bold",
     "info_bold": "purple bold",
     "warning": "yellow bold",
     "green": "green bold",
@@ -40,6 +41,9 @@ class AgenteReativoV1:
         self.pegou_ouro: bool = False
         self.vitoria: bool = False
         self.morreu: bool = False
+
+    def printw(self, txt):
+        console.print(txt, style="info2")
 
     def get_opcoes_mov(self) -> List:
         """

@@ -4,7 +4,7 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    Svg: require('@site/static/img/code_demo.svg').default,
+    Svg: require('@site/static/img/code_demo2.svg').default,
   },
 ];
 

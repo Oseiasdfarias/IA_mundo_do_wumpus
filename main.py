@@ -1,6 +1,5 @@
 from ia_wumpus import Ambiente
 from ia_wumpus import AgenteReativoV1
-from rich import print
 import os
 
 rodadas = 0
@@ -11,6 +10,7 @@ while True:
     amb = Ambiente(dimensao_ambiente=5, t_pausa=0.0)
     amb.mostrar_ambiente()
     agente = AgenteReativoV1(amb)
+    p = agente.printw
     while True:
         agente.verificar_atirar_wumpus()
         pos_mov = agente.sortear_pos(agente.get_opcoes_mov())
@@ -24,11 +24,11 @@ while True:
             passos += 1
             rodadas += 1
             agente.ganhou_jogo()
-            print(f"[red italic bold]Qt. de passos no Ambiente: {passos}[/]")
-            print(f"[red italic bold]Qt. de rodadas: {rodadas}\n[/]")
+            p(f"Qt. de passos no Ambiente: {passos}")
+            p(f"Qt. de rodadas: {rodadas}\n")
             os._exit(0)
         elif agente.morreu:
             break
         passos += 1
-    print(f"[red italic bold]Qt. de passos no Ambiente: {passos}[/]")
+    p(f"Qt. de passos no Ambiente: {passos}")
     rodadas += 1
