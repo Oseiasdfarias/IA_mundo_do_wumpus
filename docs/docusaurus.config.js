@@ -30,7 +30,7 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'pt-BR',
-    locales: ['pt-BR', 'en'],
+    locales: ['pt-BR'],
   },
 
   presets: [
@@ -86,6 +86,11 @@ const config = {
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
+            href: 'https://pypi.org/project/ia-wumpus/',
+            label: 'PyPI',
+            position: 'right',
+          },
+          {
             href: 'https://github.com/Oseiasdfarias/IA_mundo_do_wumpus',
             label: 'GitHub',
             position: 'right',
@@ -126,14 +131,6 @@ const config = {
                 label: 'Stack Overflow',
                 href: 'https://stackoverflow.com/questions/tagged/docusaurus',
               },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
             ],
           },
           {
@@ -146,6 +143,10 @@ const config = {
               {
                 label: 'GitHub',
                 href: 'https://github.com/Oseiasdfarias/IA_mundo_do_wumpus',
+              },
+              {
+                label: 'PyPI',
+                href: 'https://pypi.org/project/ia-wumpus/',
               },
             ],
           },
