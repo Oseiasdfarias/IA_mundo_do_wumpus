@@ -1,6 +1,8 @@
 from ia_wumpus import Ambiente
 from ia_wumpus import AgenteReativoV1
+from ia_wumpus import __version__
 import os
+
 
 rodadas = 0
 passos = 0
@@ -24,6 +26,7 @@ while True:
             passos += 1
             rodadas += 1
             agente.ganhou_jogo()
+            p(f"Versão: {__version__}")
             p(f"Qt. de passos no Ambiente: {passos}")
             p(f"Qt. de rodadas: {rodadas}\n")
             os._exit(0)
