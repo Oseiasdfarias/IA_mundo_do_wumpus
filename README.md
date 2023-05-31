@@ -1,16 +1,12 @@
-
-<img src="https://github.com/Oseiasdfarias/IA_mundo_do_wumpus/blob/main/utils/logo.png?raw=true" alt="Logo UFPA" style="width:50px">
-
-
-<strong>Universidade Federal do Pará</strong>\
-<strong>Campus Universitário de Tucuruí</strong>\
-<strong>Faculdade de Engenharia Elétrica</strong>
-
-<br>
-
 # Mundo do Wumpus - Intelegência Computacional
 
 Ambiente para estudo de modelos de Apredizagem de Máquina da disciplina de Inteligência Computacional.
+
+<br>
+
+## Documentação
+
+### [Documentação ia-wumpus](https://oseiasdfarias.github.io/IA_mundo_do_wumpus/)
 
 <br>
 
@@ -32,6 +28,14 @@ Ambiente para estudo de modelos de Apredizagem de Máquina da disciplina de Inte
   <li>Onde houver poço não pode ser posicionado o ouro e o Wumpus. No entanto, estes podem ser posicionados em quaisquer uma das outras casas.</li>
 </ul>
 
+```python title=main.py
+from ia_wumpus import Ambiente
+
+
+amb = Ambiente(dimensao_ambiente=3)
+amb.mostrar_ambiente()
+amb.mostrar_percepcoes()
+```
 
 <br>
 
@@ -49,6 +53,19 @@ Ambiente para estudo de modelos de Apredizagem de Máquina da disciplina de Inte
   <li>Obs.: Serão projetadas várias versões deste Agente. Nesta primeira versão, ele utiliza apenas o conjunto de regras como base de conhecimento. Ou seja, não tem memória e nenhum outro mecanismo mais sofisticado para escolher qual das possíveis regras utilizar. Para isto, deve ser uma escolha aleatória. Além disso, ele tem apenas uma única flecha.</li>
 </ul>
 
+```python title=main.py
+from ia_wumpus import AgenteReativoV1
+from ia_wumpus import Ambiente
+
+amb = Ambiente(dimensao_ambiente=3)
+agente = AgenteReativoV1(amb)
+agente.verificar_atirar_wumpus()
+
+amb.mostrar_ambiente()
+pos_mov = agente.sortear_pos(agente.get_opcoes_mov())
+amb.atualiza_pos_agente(pos_mov)
+amb.mostrar_ambiente()
+```
 
 
 <br>
