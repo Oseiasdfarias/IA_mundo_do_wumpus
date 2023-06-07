@@ -180,7 +180,7 @@ class AgenteReativoV1:
             if self.amb.get_pos_objetos()["agente"][0] == (0, 0):
                 console.print("\n============== Fim de Jogo ==============",
                               style="info")
-                console.print("[blink][b]          VITÓRIA DO AGENTE [/b][/blink]",
+                console.print("[blink][bold]          VITÓRIA DO AGENTE [/bold][/blink]",
                               style="info_bold")
                 console.print("=========================================\n",
                               style="info")
