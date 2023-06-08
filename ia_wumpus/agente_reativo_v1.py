@@ -91,8 +91,9 @@ class AgenteReativoV1:
                     console.print("\nWumpus Matou o Agente!", style="danger")
                     console.print(" \n============= Fim de Jogo =============",
                                   style="danger")
-                    console.print("[blink][b]          DERROTA DO AGENTE [/b][/blink]",
-                                  style="danger")
+                    console.print(
+                        f"[blink][b]{' '*10}DERROTA DO AGENTE [/b][/blink]",
+                        style="danger")
                     console.print("=======================================\n",
                                   style="danger")
                     self.morreu = True
@@ -112,8 +113,9 @@ class AgenteReativoV1:
                                   style="danger")
                     console.print(" \n============= Fim de Jogo =============",
                                   style="danger")
-                    console.print("[blink][b]          DERROTA DO AGENTE [/b][/blink]",
-                                  style="danger")
+                    console.print(
+                        f"[blink][b]{' '*10}DERROTA DO AGENTE [/b][/blink]",
+                        style="danger")
                     console.print("=======================================\n",
                                   style="danger")
                     self.morreu = True
@@ -180,7 +182,7 @@ class AgenteReativoV1:
             if self.amb.get_pos_objetos()["agente"][0] == (0, 0):
                 console.print("\n============== Fim de Jogo ==============",
                               style="info")
-                console.print("[blink][bold]          VITÓRIA DO AGENTE [/bold][/blink]",
+                console.print(f"[blink]{' '*10}VITÓRIA DO AGENTE [/blink]",
                               style="info_bold")
                 console.print("=========================================\n",
                               style="info")
