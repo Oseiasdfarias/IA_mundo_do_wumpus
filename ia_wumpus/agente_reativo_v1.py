@@ -165,7 +165,7 @@ class AgenteReativoV1:
             pos_wumpus = self.amb.get_pos_objetos()["wumpus"]
             for i in pos_wumpus:
                 if i == pos_tiro:
-                    console.print("[INFO] Tiro e matou o Wumpos!",
+                    console.print("[INFO] Atirou e matou o Wumpos!",
                                   style="green")
                     return
             console.print("[DANG] Errou o tiro!",
