@@ -61,7 +61,8 @@ class Ambiente:
         # Percepções dos Objetos no Ambiente.
         self.__pos_percepcoes: dict = {"brisa":  [],
                                        "fedor":  [],
-                                       "brilho": []}
+                                       "brilho": [],
+                                       "ouro": []}
         # Posições dos Objetos no Ambiente.
         self.__pos_objetos: dict = {"pocos":  [],
                                     "wumpus": [],
@@ -172,6 +173,7 @@ class Ambiente:
             pos_ouro = self.__add_pos_obj_map(3)
             self.__salvar_pos_objetos(objeto="ouro", pos_objeto=pos_ouro)
             self.__pos_percepcoes["brilho"].append((pos_ouro[1], pos_ouro[0]))
+            self.__add_percepcoes_obj(objeto="ouro", pos=pos_ouro)
 
     def __add_pos_agente(self) -> None:
         """Posicionando o(s) Agente(s) no Ambiente."""

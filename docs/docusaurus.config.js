@@ -82,7 +82,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Introdução',
+            label: 'Relatório',
           },
           {
             type: 'docSidebar',
@@ -121,8 +121,8 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Introdução',
-                to: '/docs/category/Introdução',
+                label: 'Relatório',
+                to: '/docs/category/Relatório',
               },
               {
                 label: 'Documentação',
