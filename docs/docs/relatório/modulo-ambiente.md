@@ -53,6 +53,12 @@ O Mundo de Wumpus é um jogo antigo de computador que representa um ambiente art
 | |(0 > x > n-2, 0)|x|-|x|-|-|-|-|-|-|-|-|x|-|
 | |(0 > x > n-2, 0)|x|-|x|-|-|-|-|-|-|-|-|-|-|
 
+A posta criação da Tabela, o próximo passo foi iniciar a criação do algorítimo, para isso a linguagem de programação escolhida foi o Python e o paradigma de programação escolhido foi o Programação Orientada a Objetos (POO).
+
+## Caracteristicas do Ambiente:
+
+O ambiente foi pensado para ser genérico quanto as suas dimensões e quantidade de objetos, dessa forma, é possivel criar ambientes de escalas diferentes e com quantidade de agente, Wumpus, Poços e Ouros distitos, no entanto o padrão definido foi, 1 Agente, 1 Wumpus, 3 Poços e 1 Ouro, o **exemplo 1** é uma demostração do ambiente padrão, além disso a classe que implementa o ambiente possui método para visualizar os estados do sistema e um menu para discrever os objetos no ambiente.
+
 
 ## Exemplos `1`
 

@@ -7,15 +7,17 @@ custom_edit_url: null
 
 ## Descrição do módulo
 
-O **módulo agente-reativo-v1** implementa a **Classe AgenteReativoV2** que é responsável por criar a dinâmica do agente no **Mundo de Wunpus**, possibilitando que o agente se mova no ambiente e tome as decisões necessárias para cumprir a tarefa, que no caso desse agente é pegar o ouro e retornar a posição inicial, para isso, é preciso não cair em poços ou ter contato com o wumpus, caso isso ocorra o agente morre.
+O **módulo agente-reativo-v2** implementa a **Classe AgenteReativoV2** essa classe é uma melhoria da **Classe AgenteReativoV1**  do **módulo agente-reativo-v2**.
 
 ## Expeficicações do Agente Reativo (V2)
 
-- O comportamento do Agente é definido a partir de seu conjunto de regras:
-    + Se < percepções > então < ação >.
-- Este conjunto de regras (ou Base de Conhecimento) deve ser especificado por meio de uma tabela, aos moldes da que foi especificada, inicialmente, na “Aula 04';
-- A partir da especificação, o próximo passo é codificar o Agente e integrar ao “Gerador Aleatório de Ambientes, de forma a ossibilitar a realização de testes de validação para posterior avaliação de performance;
-- Obs.: Serão projetadas várias versões deste Agente. Nesta primeira versão, ele utiliza apenas o conjunto de regras como base de conhecimento. Ou seja, não tem memória e nenhum outro mecanismo mais sofisticado para escolher qual das possíveis regras utilizar. Para isto, deve ser uma escolha aleatória. Além disso, ele tem apenas uma única flecha.
+- Esta versão engloba a versão 1 e, mais, aos moldes do “Modelo Linear de Estruturas de Agentes”;
+- Estrutura de memória, que pode ser: uma lista; uma matriz - réplica do ambiente, com anotações feitas pelo agente; ou, outra estrutura de dados definida como mais adequada pela equipe;
+- Mecanismo mais inteligente para escolha da regra a ser aplicada, em caso de duas ou mais possíveis de serem utilizadas em determinado instante. Na primeira versão foi utilizada a Estratégia Aleatória. Logo, há liberdade para definir a melhor estratégia para essa finalidade;
+- Além disso, uso do conhecimento registrado na memória para auxiliar o processo de escolha da regra a ser aplicada (Inferência? Planejamento?);
+- Além disso, uso do conhecimento registrado na memória para auxiliar o processo de escolha da regra a ser aplicada (Inferência? Planejamento?);
+- E o que mais a equipe deseje projetar: “- Usem as vossas criatividades”
+- Ao final, após o projeto deste Agente, pede-se que este seja classificado de acordo com as estruturas de agentes e justificada a classificação.
 
 
 ## Classe
@@ -49,57 +51,7 @@ O **módulo agente-reativo-v1** implementa a **Classe AgenteReativoV2** que é r
 
 
 
-<!--
-
-### Métodos
-
-### `Ambiente.__add_pos_obj()`
-
-Posiciona o objeto em um local válido no ambiente, para isso, usa o método `Ambiente.__sortear_pos` para sortear a posição.
-
-### `Ambiente.__sortear_pos()`
-
-Sorteia uma posição para adicionar um objeto.
-
-### `Ambiente.__add_percepcoes_obj(objeto, pos)`
-
-Posiciona as percepções de um dado objeto ao seu redor.
-
-### `Ambiente.__add_pos_wumpus()`
-
-Posiciona o(s) Wumpos e as suas percepções no ambiente, usa os métodos `Ambiente.__add_pos_obj` e `Ambiente.__add_percepcoes_obj` para realizar a lógica.
-
-### `Ambiente.__add_pos_pocos()`
-
-Posiciona os poços e as suas percepções no ambiente, usa os métodos `Ambiente.add_pos_obj` e  `Ambiente.__add_percepcoes_obj`  para realizar a lógica.
-
-### `Ambiente.__add_pos_ouro()`
-
-Posiciona o(s) Ouro(s) e as suas percepções no ambiente, usa o método `Ambiente.__add_pos_obj` para realizar a lógica.
-
-### `Ambiente.__add_pos_agente()`
-
-Adiciona o Agente na posição `[0, 0]`
-
-### `Ambiente.__menu()`
-
-Menu com as descrições dos objetos.
-
-### `Ambiente.infos_ambiente()`
-
-Mostra informações sobre o Mundo do Wumpus.
-
-### `Ambiente.mostrar_ambiente()`
-
-Mostra a matriz que representa o Mundo do Wumpus.
-
-### `Ambiente.mostrar_percepcoes()`
-
- Mostra as posições das percepções dos objetos.
- 
- -->
-
-Para que seja possível usar a classe `AgenteReativoV2` é preciso instáncia um objeto `Ambiente` e passar como argumento para a Classe `AgenteReativoV1`, o Exemplo 1 mostra a estrutura.
+Para que seja possível usar a classe `AgenteReativoV2` é preciso instáncia um objeto `Ambiente` e passar como argumento para a Classe `AgenteReativoV2`, o Exemplo 1 mostra a estrutura.
 
 ## Exemplos `1`
 
