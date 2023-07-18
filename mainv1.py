@@ -13,11 +13,11 @@ ensaiosV1: List[List] = [[], []]
 ensaiosV2: List[List] = [[], []]
 
 
-amb_base = Ambiente(dimensao_ambiente=35, t_pausa=0.0)
+amb_base = Ambiente(dimensao_ambiente=3, t_pausa=0.0)
 backup_amb = deepcopy(amb_base)
 
 cont = 0
-rod = 50
+rod = 10
 
 
 def graficos(ensaiosV1, ensaiosV2):
@@ -133,7 +133,8 @@ TesteV2()
 TesteV1()
 
 ensaios = np.array(ensaiosV1+ensaiosV2)
+print(len(ensaios))
+# ensaiosV2 = np.array()
 
-np.savetxt("simulacao/sim_1_dimensao_35_v50",
-           ensaiosV1+ensaiosV2, delimiter=";")
+np.savetxt("simulacao/sim_1_dimensao_3_v10", ensaiosV1+ensaiosV2, delimiter=";")
 graficos(ensaiosV1, ensaiosV2)

@@ -1,0 +1,8 @@
+- **Gráfico das rodadas (V1 vs V2)**
+- **Gráfico dos passos (V1 vs V2)**
+
+- **Média rodadas V1:** 
+- **Médias de Passos V1:**
+
+- **Média rodadas V2:** 
+- **Médias de Passos V2:** 
