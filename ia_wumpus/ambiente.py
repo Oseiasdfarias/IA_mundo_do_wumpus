@@ -49,7 +49,9 @@ class Ambiente:
             self.dimensao_ambiente = 3
         else:
             self.dimensao_ambiente = dimensao_ambiente
+
         self.pocos = self.dimensao_ambiente
+
         self.wumpus = wumpus
         self.ouro = ouro
         self.dimensoes = (self.dimensao_ambiente,
