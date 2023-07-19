@@ -106,4 +106,4 @@ Qt. de rodadas: 3
 
 ```
 
-Para que o `agente` vença a partida, ele deve pega o ouro e voltar para a posição inicial `(0, 0)`. Nessa execução precisou de 12 partidas para que o agente vencesse o jogo.
+Para que o `agente` vença a partida, ele deve pega o ouro e voltar para a posição inicial `(0, 0)`. Nessa execução precisou de 4 partidas para que o agente vencesse o jogo.

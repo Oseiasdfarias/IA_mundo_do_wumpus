@@ -41,6 +41,8 @@ O **módulo agente-reativo-v2** implementa a **Classe AgenteReativoV2** essa cla
 | `AgenteReativoV2.pegar_outro`    | Pega o ouro caso esteja na mesma posição do agente. |
 | `AgenteReativoV2.status_agente_ouro`    | Informa se o agente pegou ou não o ouro. |
 | `AgenteReativoV2.__sentir_fedor`    | Verifica se na posição atual do agente existe a percepção de fedor. |
+|`AgenteReativoV2.__sentir_brisa`|Verifica se na posição atual do agente existe a percepção de brisa.|
+|`AgenteReativoV2.verificar_pos_segura`|Método responsável por verificar a segurança do próximo passo e salvar as posições seguras.|
 | `AgenteReativoV2.sortear_pos`    | Sortea um item de uma lista, método usado para sortear posições |
 | `AgenteReativoV2.verificar_atirar_wumpus`    | Verifica se existe fedor na posição atual usando o método `AgenteReativoV2.__sentir_fedor`, a partir dessa validação, atira em uma direção para tentar matar o wumpus. |
 | `AgenteReativoV2.verificar_vitorio`    | Verifica se o agente venceu o jogo. |
@@ -59,15 +61,17 @@ Para que seja possível usar a classe `AgenteReativoV2` é preciso instáncia um
 
 **Código:**
 ```python title="main.py"
-from ia_wumpus import AgenteReativoV1
+from ia_wumpus import AgenteReativoV2
 from ia_wumpus import Ambiente
 
 amb = Ambiente(dimensao_ambiente=3)
-agente = AgenteReativoV1(amb)
+agente = AgenteReativoV2(amb)
 agente.verificar_atirar_wumpus()
 
 amb.mostrar_ambiente()
-pos_mov = agente.sortear_pos(agente.get_opcoes_mov())
+
+pos_mov = agente.verificar_pos_segura()
+
 amb.atualiza_pos_agente(pos_mov)
 amb.mostrar_ambiente()
 ```
@@ -106,7 +110,7 @@ Para fazer o jogo execultar até obter uma vitória, podemos usar loops while an
 **Código:**
 ```python title="main.py"
 from ia_wumpus import Ambiente
-from ia_wumpus import AgenteReativoV1
+from ia_wumpus import AgenteReativoV2
 import os
 
 rodadas = 0
@@ -116,11 +120,13 @@ while True:
     passos = 0
     amb = Ambiente(dimensao_ambiente=5, t_pausa=0.0)
     amb.mostrar_ambiente()
-    agente = AgenteReativoV1(amb)
+    agente = AgenteReativoV2(amb)
     p = agente.printw
     while True:
         agente.verificar_atirar_wumpus()
-        pos_mov = agente.sortear_pos(agente.get_opcoes_mov())
+
+        pos_mov = agente.verificar_pos_segura()
+
         amb.atualiza_pos_agente(pos_mov)
         amb.mostrar_ambiente()
         agente.pegar_outro()
@@ -154,18 +160,18 @@ as últimas saídas para uma execução do código.
 .
 
 Mundo do Wumpus:
-[[0 4 0 0 2]
- [0 0 0 0 2]
+[[0 0 0 0 0]
+ [4 0 2 0 2]
  [0 0 0 0 0]
- [2 0 0 0 2]
+ [2 0 2 0 0]
  [0 1 0 0 2]]
 [INFO:] O agente está com o ouro!
 
 Mundo do Wumpus:
-[[4 0 0 0 2]
- [0 0 0 0 2]
+[[4 0 0 0 0]
+ [0 0 2 0 2]
  [0 0 0 0 0]
- [2 0 0 0 2]
+ [2 0 2 0 0]
  [0 1 0 0 2]]
 [INFO:] O agente está com o ouro!
 
@@ -173,9 +179,9 @@ Mundo do Wumpus:
           VITÓRIA DO AGENTE
 =========================================
 
-Qt. de passos no Ambiente: 8
-Qt. de rodadas: 6
+Qt. de passos no Ambiente: 4
+Qt. de rodadas: 3
 
 ```
 
-Para que o `agente` vença a partida, ele deve pega o ouro e voltar para a posição inicial `(0, 0)`. Nessa execução precisou de 12 partidas para que o agente vencesse o jogo.
+Para que o `agente` vença a partida, ele deve pega o ouro e voltar para a posição inicial `(0, 0)`. Nessa execução precisou de 4 partidas para que o agente vencesse o jogo.
