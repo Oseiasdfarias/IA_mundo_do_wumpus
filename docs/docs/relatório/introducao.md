@@ -9,7 +9,8 @@ custom_edit_url: null
 <h1> <center> Campus Universitário de Tucuruí</center> </h1>
 <h1> <center> Faculdade de Engenharia Elétrica</center> </h1>
 <h1> <center> Disciplina: Inteligência Computacional</center> </h1>
-    
+
+
 ### Grupo 3
 
 **Professor Dr:** Otávio Noura Teixeira

@@ -32,7 +32,7 @@ Para fazer o jogo execultar até obter uma vitória, podemos usar loops while an
 **Código:**
 ```python title="main.py"
 from ia_wumpus import Ambiente
-from ia_wumpus import AgenteReativoV1
+from ia_wumpus import AgenteReativoV2
 import os
 
 rodadas = 0
@@ -42,7 +42,7 @@ while True:
     passos = 0
     amb = Ambiente(dimensao_ambiente=5, t_pausa=0.0)
     amb.mostrar_ambiente()
-    agente = AgenteReativoV1(amb)
+    agente = AgenteReativoV2(amb)
     p = agente.printw
     while True:
         agente.verificar_atirar_wumpus()
@@ -82,8 +82,8 @@ as últimas saídas para uma execução do código.
 .
 
 Mundo do Wumpus:
-[[0 4 0 0 2]
- [0 0 0 0 2]
+[[0 0 0 0 2]
+ [4 0 0 0 2]
  [0 0 0 0 0]
  [2 0 0 0 2]
  [0 1 0 0 2]]
@@ -101,8 +101,8 @@ Mundo do Wumpus:
           VITÓRIA DO AGENTE
 =========================================
 
-Qt. de passos no Ambiente: 8
-Qt. de rodadas: 6
+Qt. de passos no Ambiente: 4
+Qt. de rodadas: 3
 
 ```
 
