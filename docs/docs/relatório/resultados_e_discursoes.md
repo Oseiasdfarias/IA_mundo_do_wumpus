@@ -30,10 +30,10 @@ Além disso, para realiza uma análise mais robusta, vamos executar o algorítim
 
 ![passos V1xV2](./img/img/passos_3x3.svg)
 
-- Média rodadas V1: **6.15** 
-- Média rodadas V2: **9.58**
-- Médias de Passos V1: **3.49**
-- Médias de Passos V2: **2.17** 
+- Média rodadas V1: **13.02** 
+- Média rodadas V2: **31.19**
+- Médias de Passos V1: **7.35**
+- Médias de Passos V2: **5.82** 
 
 
 ## Simulação 50 Vitórias, Ambiente (5x5)
@@ -132,8 +132,8 @@ Além disso, para realiza uma análise mais robusta, vamos executar o algorítim
 
 ![passos V1xV2](./img/img/passos_35x35.svg)
 
-- Média rodadas V1: **5613.72** 
-- Média rodadas V2: **4659.00**
-- Médias de Passos V1: **9.25**
-- Médias de Passos V2: **3.90** 
+- Média rodadas V1: **4407.80** 
+- Média rodadas V2: **2314.25**
+- Médias de Passos V1: **10.52**
+- Médias de Passos V2: **3.60** 
 

@@ -1,13 +1,12 @@
 from ia_wumpus import Ambiente
 from ia_wumpus import AgenteReativoV1, AgenteReativoV2
-import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from ia_wumpus import __version__
-import os
 from copy import deepcopy
 from typing import List
 
+plt.style.use("ggplot")
 
 ensaiosV1: List[List] = [[], []]
 ensaiosV2: List[List] = [[], []]
@@ -21,20 +20,33 @@ rod = 50
 
 
 def graficos(ensaiosV1, ensaiosV2):
+    ev1_0 = np.mean(ensaiosV1[0])
+    ev1_1 = np.mean(ensaiosV1[1])
+    ev2_0 = np.mean(ensaiosV2[0])
+    ev2_1 = np.mean(ensaiosV2[1])
+
+    plt.figure(figsize=(12, 6))
+    plt.subplots_adjust(left=0.07, right=0.971, top=0.943, bottom=0.1,
+                        wspace=0.4, hspace=0.283)
+
     plt.subplot(2, 1, 1)
-    plt.plot(ensaiosV1[0], label="Passos do Agente V1", color="b")
-    plt.plot(ensaiosV2[0], linestyle='--',
-             label="Passos do Agente V2", color="r")
+    plt.bar([f"{i}" for i in range(len(ensaiosV1[0]))], ensaiosV1[0],
+            label=f"Rodadas do Agente V1 P={ev1_0:.2f}", color="b")
+    plt.bar([f"{i}" for i in range(len(ensaiosV2[0]))], ensaiosV2[0],
+            linestyle='--', label=f"Rodadas do Agente V2 R={ev2_0:.2f}", color="r")
     plt.xlabel("Ensaios")
     plt.ylabel("Rodadas")
+    plt.legend()
 
     plt.subplot(2, 1, 2)
-    plt.plot(ensaiosV1[1], label="Rodadas  V2", color="b")
-    plt.plot(ensaiosV2[1], linestyle='--',
-             label="Rodadas  V2", color="r")
+    plt.bar([f"{i}" for i in range(len(ensaiosV1[1]))], ensaiosV1[1],
+            label=f"Passos do Agente V1 P={ev1_1:.2f}", color="b")
+    plt.bar([f"{i}" for i in range(len(ensaiosV2[1]))], ensaiosV2[1],
+            linestyle='--', label=f"Passos do Agente V2 P={ev2_1:.2f}",
+            color="r")
     plt.xlabel("Ensaios")
     plt.ylabel("passos")
-
+    plt.legend()
     plt.show()
 
 
